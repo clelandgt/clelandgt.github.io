@@ -159,7 +159,7 @@
         <h1 id="使用Hexo搭建个人博客"><a href="#使用Hexo搭建个人博客" class="headerlink" title="使用Hexo搭建个人博客"></a>使用Hexo搭建个人博客</h1><p>作为一枚程序猿，可以通过写博客总结学到的一些知识点，同时也可以提高表达能力。更重要的是在分享过程中，可以结交一些朋友，所以最近打算搭建一个博客网站。通过调研，使用<strong>Hexo</strong>(基于node.js的静态博客框架)+<strong>Github.io</strong>(用于部署网站的空间资源)可快速部署博客网站。</p>
 <p>本文基于<strong>MacOS</strong>环境搭建,自带<strong>Git</strong>,所以不需要再下载安装。</p>
 <h2 id="申请GitHub并创建相应的代码仓库"><a href="#申请GitHub并创建相应的代码仓库" class="headerlink" title="申请GitHub并创建相应的代码仓库"></a>申请GitHub并创建相应的代码仓库</h2><p>需要使用github.io作为部署网站的空间资源并做文章的版本控制.</p>
-<p><strong>第一步：</strong>申请GitHub账号(<a href="https://github.com/" target="_blank" rel="noopener">GitHub官网</a>)，并配置git。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ssh-keygen # 生成秘钥，一路回车即可</span><br><span class="line"><span class="meta">$</span> cat ~/.ssh/id_rsa.pub # 生成的秘钥</span><br></pre></td></tr></table></figure></p>
+<p><strong>第一步：</strong>申请GitHub账号(<a href="https://github.com/" target="_blank" rel="noopener">GitHub官网</a>)，并配置git。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ssh-keygen <span class="comment"># 生成秘钥，一路回车即可</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> cat ~/.ssh/id_rsa.pub <span class="comment"># 生成的秘钥</span></span></span><br></pre></td></tr></table></figure></p>
 <p>将刚刚生成的秘钥拷贝到github的SSHKyes里</p>
 <p><img src="/img/使用hexo搭建个人博客_2.png" alt=""></p>
 <p><strong>第二步：</strong>创建相应的代码仓库：用于部署网站的空间资源。<br>使用github用户名建立名为[用户名.github.io]的仓库</p>
@@ -169,7 +169,7 @@
 <li><a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js官网</a>下载，然后双击该文件，无脑点击下一步即可；</li>
 <li>终端上使用brew安装, 但前提是已安装brew。如未安装，强烈推荐安装，因为该工具是mac的一大神器。<a href="https://brew.sh/" target="_blank" rel="noopener">brew官网</a></li>
 </ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> brew install node</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> brew install node</span></span><br></pre></td></tr></table></figure>
 <h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><p>安装Hexo</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g hexo</span><br></pre></td></tr></table></figure>
 <h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><p><a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">https://github.com/litten/hexo-theme-yilia</a></p>
