@@ -156,6 +156,118 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Tableau-优化数据提取" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/18/Tableau-优化数据提取/">Tableau | 优化数据提取</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/18/Tableau-优化数据提取/" class="archive-article-date">
+  	<time datetime="2018-01-17T16:35:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Tableau-优化数据提取"><a href="#Tableau-优化数据提取" class="headerlink" title="Tableau | 优化数据提取"></a>Tableau | 优化数据提取</h1><p>本文TableauServer基于win10环境</p>
+<h2 id="增加后台进程数"><a href="#增加后台进程数" class="headerlink" title="增加后台进程数"></a>增加后台进程数</h2><ol>
+<li><p>以管理员身份进入TableauServer的bin目录，并停止Server</p>
+<p> cd [安装目录]\Tableau\Tableau Server\10.3\bin<br> tabadmin stop</p>
+</li>
+<li><p>打开<strong>Configure Tableau Server(Tableau Server配置使用工具)</strong><br><img src="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/Tableau-优化数据提取/tableau优化数据提取_1.png" alt="||300*300"></p>
+</li>
+</ol>
+<ol>
+<li><p>点击<strong>Servers(服务器)</strong>选项卡<br><img src="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/Tableau-优化数据提取/tableau优化数据提取_2.png" alt="||600*600"></p>
+</li>
+<li><p>在Number of Processes per Server栏中选中服务器，然后点击<strong>Edit(编辑)</strong>，设置Backgrouder(后台进程)为2，之前为1。<br><img src="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/Tableau-优化数据提取/tableau优化数据提取_3.png" alt="||600*600"></p>
+</li>
+<li><p>点击<strong>常规(General)</strong>，并输入服务器的管理员账号信息，保存设置。<br><img src="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/Tableau-优化数据提取/tableau优化数据提取_4.png" alt="||600*600"></p>
+</li>
+<li><p>启动Tableau Server</p>
+<p> tabadmin start</p>
+</li>
+</ol>
+<p>使用tableau的管理员浏览器访问tableau server，点击状态可查看到后台程序为2，说明修改成功。<br><img src="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/Tableau-优化数据提取/tableau优化数据提取_5.png" alt="||600*450"></p>
+<h2 id="获取Tableau-Server-存储的访问权限"><a href="#获取Tableau-Server-存储的访问权限" class="headerlink" title="获取Tableau Server 存储的访问权限"></a>获取Tableau Server 存储的访问权限</h2><p>以管理员身份进入Tableau server的bin目录，并停止Server</p>
+<pre><code>cd [安装目录]\Tableau\Tableau Server\10.3\bin
+tabadmin stop
+</code></pre><p>开启readonly 用户，并设置密码</p>
+<pre><code>tabadmin dbpass --username readonly 12345678
+</code></pre><p>重启TableauServer</p>
+<pre><code>tabadmin start
+</code></pre><h2 id="设置数据提取超时时间"><a href="#设置数据提取超时时间" class="headerlink" title="设置数据提取超时时间"></a>设置数据提取超时时间</h2><p>数据提取默认超时时间为7200s，超时会导致数据提取失败。但可通过以下方式，重新设置超时时间。<br>首先以管理员身份进入Tableau server的bin目录</p>
+<pre><code>cd [安装目录]\Tableau\Tableau Server\10.3\bin
+</code></pre><p>通过修改querylimit参数调整超时时间，并将重新加载配置，启动Server。这里设置querylimit=18000s(5h)</p>
+<pre><code>tabadmin set backgrounder.querylimit 9000
+tabadmin configure 
+tabadmin start
+</code></pre><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://onlinehelp.tableau.com/current/server/en-us/data_dictionary.html#_background_tasks_anchor" target="_blank" rel="noopener">TableauServer存储库workgroup database</a></li>
+<li><a href="http://kb.tableau.com/articles/issue/error-extract-timeout-7200-seconds?lang=zh-cn" target="_blank" rel="noopener">错误“7200 秒内未能完成数据提取”</a></li>
+<li><a href="https://onlinehelp.tableau.com/v10.3/server/zh-cn/perf_optimize_extracts.htm" target="_blank" rel="noopener">针对数据提取进行优化</a></li>
+<li>《TableauServer 管理指南》</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">tableau</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/18/Tableau-优化数据提取/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -417,6 +529,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">tableau</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
