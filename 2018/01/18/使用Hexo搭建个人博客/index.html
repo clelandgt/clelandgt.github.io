@@ -6,27 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>使用Hexo搭建个人博客 | 阿哲的杂货铺</title>
+  <title>使用Hexo快速搭建个人博客 | cleland的杂货铺</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="作为一枚程序猿，可以通过写博客对近段时间进行总结，同时也了提高表达能力。更重要的是在分享过程中，可以结交一些朋友，所以最近打算搭建一个博客网站。通过调研，使用Hexo(基于node.js的静态博客框架)+Github.io(用于部署网站的空间资源)可快速部署博客网站。">
+  <meta name="description" content="原文链接 作为一枚程序猿，可以通过写博客对最近一段时间工作和学习进行总结，同时也了提高表达能力。更重要的是在分享过程中，可以结交一些朋友，所以最近打算搭建一个博客网站。通过调研，使用Hexo(基于node.js的静态博客框架)+Github.io(用于部署网站的空间资源)可快速部署博客网站。本文基于MacOS环境搭建,自带Git,所以不需要再下载安装。">
 <meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用Hexo搭建个人博客">
+<meta property="og:title" content="使用Hexo快速搭建个人博客">
 <meta property="og:url" content="http://yoursite.com/2018/01/18/使用Hexo搭建个人博客/index.html">
-<meta property="og:site_name" content="阿哲的杂货铺">
-<meta property="og:description" content="作为一枚程序猿，可以通过写博客对近段时间进行总结，同时也了提高表达能力。更重要的是在分享过程中，可以结交一些朋友，所以最近打算搭建一个博客网站。通过调研，使用Hexo(基于node.js的静态博客框架)+Github.io(用于部署网站的空间资源)可快速部署博客网站。">
+<meta property="og:site_name" content="cleland的杂货铺">
+<meta property="og:description" content="原文链接 作为一枚程序猿，可以通过写博客对最近一段时间工作和学习进行总结，同时也了提高表达能力。更重要的是在分享过程中，可以结交一些朋友，所以最近打算搭建一个博客网站。通过调研，使用Hexo(基于node.js的静态博客框架)+Github.io(用于部署网站的空间资源)可快速部署博客网站。本文基于MacOS环境搭建,自带Git,所以不需要再下载安装。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/figure_captions/waters-3084551_1920.jpg">
-<meta property="og:image" content="http://yoursite.com/img/使用hexo搭建个人博客_2.png">
-<meta property="og:image" content="http://yoursite.com/img/使用hexo搭建个人博客_1.png">
-<meta property="og:image" content="http://yoursite.com/img/使用hexo搭建个人博客_3.png">
-<meta property="og:updated_time" content="2018-01-18T12:58:05.699Z">
+<meta property="og:image" content="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/使用Hexo快速搭建个人博客/使用hexo搭建个人博客_2.png">
+<meta property="og:image" content="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/使用Hexo快速搭建个人博客/使用hexo搭建个人博客_1.png">
+<meta property="og:image" content="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/使用Hexo快速搭建个人博客/使用hexo搭建个人博客_3.png">
+<meta property="og:updated_time" content="2018-01-21T11:21:42.598Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用Hexo搭建个人博客">
-<meta name="twitter:description" content="作为一枚程序猿，可以通过写博客对近段时间进行总结，同时也了提高表达能力。更重要的是在分享过程中，可以结交一些朋友，所以最近打算搭建一个博客网站。通过调研，使用Hexo(基于node.js的静态博客框架)+Github.io(用于部署网站的空间资源)可快速部署博客网站。">
+<meta name="twitter:title" content="使用Hexo快速搭建个人博客">
+<meta name="twitter:description" content="原文链接 作为一枚程序猿，可以通过写博客对最近一段时间工作和学习进行总结，同时也了提高表达能力。更重要的是在分享过程中，可以结交一些朋友，所以最近打算搭建一个博客网站。通过调研，使用Hexo(基于node.js的静态博客框架)+Github.io(用于部署网站的空间资源)可快速部署博客网站。本文基于MacOS环境搭建,自带Git,所以不需要再下载安装。">
 <meta name="twitter:image" content="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/figure_captions/waters-3084551_1920.jpg">
   
-    <link rel="alternative" href="/atom.xml" title="阿哲的杂货铺" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="cleland的杂货铺" type="application/atom+xml">
   
   
     <link rel="icon" href="http://cleland.oss-cn-beijing.aliyuncs.com/img/favico.png">
@@ -69,13 +69,15 @@ var _hmt = _hmt || [];
 		  <h1 class="header-author"><a href="/">cleland</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">阿哲的杂货铺</p>
+		<p class="header-subtitle">技术分享与生活随笔</p>
 		
 
 		<nav class="header-menu">
 			<ul>
 			
 				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/archives/">博客</a></li>
 	        
 			</ul>
 		</nav>
@@ -125,9 +127,11 @@ var _hmt = _hmt || [];
 			  <h1 class="header-author js-header-author">cleland</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>阿哲的杂货铺<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>技术分享与生活随笔<i class="icon icon-quo-right"></i></p>
 			
 			
+			
+				
 			
 				
 			
@@ -149,7 +153,9 @@ var _hmt = _hmt || [];
 				<ul style="width: 50%">
 				
 				
-					<li style="width: 100%"><a href="/">主页</a></li>
+					<li style="width: 50%"><a href="/">主页</a></li>
+		        
+					<li style="width: 50%"><a href="/archives/">博客</a></li>
 		        
 				</ul>
 			</nav>
@@ -171,7 +177,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      使用Hexo搭建个人博客
+      使用Hexo快速搭建个人博客
     </h1>
   
 
@@ -184,19 +190,40 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/figure_captions/waters-3084551_1920.jpg" alt="||600*350"></p>
-<p>作为一枚程序猿，可以通过写博客对近段时间进行总结，同时也了提高表达能力。更重要的是在分享过程中，可以结交一些朋友，所以最近打算搭建一个博客网站。通过调研，使用<strong>Hexo</strong>(基于node.js的静态博客框架)+<strong>Github.io</strong>(用于部署网站的空间资源)可快速部署博客网站。<br><a id="more"></a></p>
-<p>本文基于<strong>MacOS</strong>环境搭建,自带<strong>Git</strong>,所以不需要再下载安装。</p>
+        <p><img src="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/figure_captions/waters-3084551_1920.jpg" alt=""></p>
+<p><a href="http://www.cleland.club/2018/01/18/%E4%BD%BF%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_blank" rel="noopener">原文链接</a></p>
+<p>作为一枚程序猿，可以通过写博客对最近一段时间工作和学习进行总结，同时也了提高表达能力。更重要的是在分享过程中，可以结交一些朋友，所以最近打算搭建一个博客网站。通过调研，使用<strong>Hexo</strong>(基于node.js的静态博客框架)+<strong>Github.io</strong>(用于部署网站的空间资源)可快速部署博客网站。本文基于<strong>MacOS</strong>环境搭建,自带<strong>Git</strong>,所以不需要再下载安装。<br><a id="more"></a></p>
+<!-- MarkdownTOC -->
+<ul>
+<li>申请GitHub并创建相应的代码仓库</li>
+<li>Hexo安装<ul>
+<li>安装Node</li>
+<li>安装Hexo</li>
+<li>测试是否安装成功</li>
+</ul>
+</li>
+<li>Hexo基本配置<ul>
+<li>配置网站的基本信息</li>
+<li>配置部署信息</li>
+</ul>
+</li>
+<li>新建文章并发布</li>
+<li>Hexo目录结构</li>
+<li>Hexo常用命令</li>
+<li>更换主题</li>
+<li>参考文章</li>
+</ul>
+<!-- /MarkdownTOC -->
 <h2 id="申请GitHub并创建相应的代码仓库"><a href="#申请GitHub并创建相应的代码仓库" class="headerlink" title="申请GitHub并创建相应的代码仓库"></a>申请GitHub并创建相应的代码仓库</h2><p><strong>第一步：</strong>申请<a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>账号，并配置本地的git环境。</p>
 <pre><code>$ ssh-keygen # 生成秘钥，一路回车即可
 $ cat ~/.ssh/id_rsa.pub # 生成的秘钥
 </code></pre><p>将生成的秘钥拷贝到github的SSHKyes</p>
-<p><img src="/img/使用hexo搭建个人博客_2.png" alt=""></p>
+<p><img src="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/使用Hexo快速搭建个人博客/使用hexo搭建个人博客_2.png" alt=""></p>
 <p><strong>第二步：</strong>创建代码仓库,用于部署网站的空间资源。<br>建立名为[github用户名.github.io]的仓库</p>
-<p><img src="/img/使用hexo搭建个人博客_1.png" alt=""></p>
+<p><img src="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/使用Hexo快速搭建个人博客/使用hexo搭建个人博客_1.png" alt=""></p>
 <h2 id="Hexo安装"><a href="#Hexo安装" class="headerlink" title="Hexo安装"></a>Hexo安装</h2><h3 id="安装Node"><a href="#安装Node" class="headerlink" title="安装Node"></a>安装Node</h3><p>由于Hexo是基于node.js的静态博客框架，所以需要安装Node。可通过以下两种方法实现快速安装：</p>
-<p><strong>方案1</strong> 下载<a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a>，然后双击该文件，无脑点击下一步即可；</p>
-<p><strong>方案2</strong> 终端上使用brew安装。</p>
+<p><strong>方案1</strong> 下载<a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a>，双击该文件，然后无脑点击下一步即可；</p>
+<p><strong>方案2</strong> 终端上使用brew进行安装。</p>
 <pre><code>$ brew install node
 </code></pre><h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><pre><code>$ sudo npm install -g hexo
 </code></pre><h3 id="测试是否安装成功"><a href="#测试是否安装成功" class="headerlink" title="测试是否安装成功"></a>测试是否安装成功</h3><p>创建文件夹，如clelandgt.github.io</p>
@@ -207,19 +234,27 @@ $ hexo init  # 初始化
 $ hexo server
 </code></pre><p>浏览器输入<a href="http://localhost:4000。如能正常访问，则表示Hexo安装成功" target="_blank" rel="noopener">http://localhost:4000。如能正常访问，则表示Hexo安装成功</a></p>
 <h2 id="Hexo基本配置"><a href="#Hexo基本配置" class="headerlink" title="Hexo基本配置"></a>Hexo基本配置</h2><p>hexo的基本配置通过编辑<strong>_config.yml</strong>文件实现,这里主要修改以下两个部分。</p>
-<h3 id="配置网站的基本信息"><a href="#配置网站的基本信息" class="headerlink" title="配置网站的基本信息"></a>配置网站的基本信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: 阿哲的杂货铺</span><br><span class="line">subtitle: 阿哲的杂货铺</span><br><span class="line">description: 技术分享与生活随笔</span><br><span class="line">author: cleland</span><br><span class="line">language: zh-CN</span><br><span class="line">timezone: Asia/Shanghai</span><br></pre></td></tr></table></figure>
+<h3 id="配置网站的基本信息"><a href="#配置网站的基本信息" class="headerlink" title="配置网站的基本信息"></a>配置网站的基本信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: cleland的杂货铺</span><br><span class="line">subtitle: cleland的杂货铺</span><br><span class="line">description: 技术分享与生活随笔</span><br><span class="line">author: cleland</span><br><span class="line">language: zh-CN</span><br><span class="line">timezone: Asia/Shanghai</span><br></pre></td></tr></table></figure>
 <p>其中的language的设置参考<a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes" target="_blank" rel="noopener">语言</a>；timezone的设置参考<a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" target="_blank" rel="noopener">时区</a></p>
 <h3 id="配置部署信息"><a href="#配置部署信息" class="headerlink" title="配置部署信息"></a>配置部署信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/clelandgt/clelandgt.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-<p>如需部署到github.io，还需安装插件</p>
+<p>这里是部署到github.io，所以需要安装插件</p>
 <pre><code>$ npm install --save hexo-deployer-git
 </code></pre><h2 id="新建文章并发布"><a href="#新建文章并发布" class="headerlink" title="新建文章并发布"></a>新建文章并发布</h2><p>运行新建文件命令，并指定文件名：</p>
 <pre><code>$ hexo new 使用Hexo搭建个人博客
 </code></pre><p>会生成文件：<strong>‘./source/_posts/使用Hexo搭建个人博客.md’</strong>。然后生成相应的静态文件</p>
 <pre><code>$ hexo g
+$ hexo server # 启动本地服务,浏览器输入http://localhost:4000 进行预览
 </code></pre><p>部署网站</p>
 <pre><code>$ hexo d
-</code></pre><p>浏览器中输入clelandgt.github.io, 查看刚刚发布的文章。<br>如果需要想使用其他域名，可先在万网上申请一个域名，如本文申请的为www.cleland.club。然后使用阿里云的域名解析<br><img src="/img/使用hexo搭建个人博客_3.png" alt=""><br>最后在source目录下创建CNAME文件，并键入需绑定的域名</p>
+</code></pre><p>浏览器中输入clelandgt.github.io, 查看刚刚发布的文章。</p>
+<p>如想<strong>自定义域名</strong>，可先在万网上申请一个域名，如本文申请的为www.cleland.club。然后使用阿里云的域名解析</p>
+<p><img src="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/使用Hexo快速搭建个人博客/使用hexo搭建个人博客_3.png" alt=""></p>
+<p>在source目录下创建CNAME文件，并键入需绑定的域名</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">www.cleland.club</span><br></pre></td></tr></table></figure>
+<p>将CNMAE文件部署到网站</p>
+<pre><code>hexo d
+</code></pre><p>浏览器输入访问刚设定的自定义域名，如本文的www.cleland.club。</p>
+<p>ps: 使用这种方式可避免对网站进行备案，但最好还是备案。因为后面涉及一些第三方插件的注册时需要备案信息的，如添加畅言的评论功能时，是需要网站的备案信息的。</p>
 <p>hexo的安装与部署到此为止，后面是hexo基础和一些使用方法的介绍。</p>
 <h2 id="Hexo目录结构"><a href="#Hexo目录结构" class="headerlink" title="Hexo目录结构"></a>Hexo目录结构</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">clelandgt.github.io  # 项目跟目录</span><br><span class="line">├── _config.yml  # 配置文件：网站相关的设置，均在这里配置</span><br><span class="line">├── db.json</span><br><span class="line">├── node_modules</span><br><span class="line">├── package-lock.json</span><br><span class="line">├── package.json</span><br><span class="line">├── public</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source  # 存放资源文件，如文章或是文章涉及的一些图片。</span><br><span class="line">└── themes  # 存在网站的主题，可从[官方主题](https://hexo.io/themes/)中下载喜欢的主题，然后在_config.yml中申明一下就行。</span><br></pre></td></tr></table></figure>
 <h2 id="Hexo常用命令"><a href="#Hexo常用命令" class="headerlink" title="Hexo常用命令"></a>Hexo常用命令</h2><pre><code>$ hexo new &apos;post_name&apos; # 新建文章
@@ -234,9 +269,8 @@ $ git clone https://github.com/litten/hexo-theme-yilia
 $ mv hexo-theme-yilia yilia
 </code></pre><p>修改_config.yml的主题申明</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: https://hexo.io/plugins/</span><br><span class="line">## Themes: https://hexo.io/themes/</span><br><span class="line">theme: yilia</span><br></pre></td></tr></table></figure>
-<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">hexo官网中文文档</a></p>
-<p><a href="https://www.jianshu.com/p/e99ed60390a8" target="_blank" rel="noopener">【全民博主】20分钟教你使用hexo搭建github博客</a></p>
-<p><a href="http://baixin.io/2015/08/HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_blank" rel="noopener">HEXO搭建个人博客</a></p>
+<p>yilia主题也可以自定配置一些功能，可通过修改<strong>主题目录下的_config.yml(非项目根目录下)</strong>配置文件。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">hexo官网中文文档</a></p>
 
       
 
@@ -319,6 +353,15 @@ $ mv hexo-theme-yilia yilia
 
   
 <nav id="article-nav">
+  
+    <a href="/2018/01/20/Hexo-hexo进阶/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Hexo|hexo进阶
+        
+      </div>
+    </a>
   
   
     <a href="/2018/01/18/Tableau-优化数据提取/" id="article-nav-older" class="article-nav-link-wrap">
@@ -448,11 +491,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">tableau</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color3">tableau</a>
               </li>
             
             <div class="clearfix"></div>
@@ -508,7 +551,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             </li>
           
             <li class="search-li">
-              <a href="https://www.zhihu.com/people/cleland" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>知乎主页</a>
+              <a href="https://www.zhihu.com/people/cleland" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>知乎</a>
             </li>
           
             <li class="search-li">
