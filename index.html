@@ -187,31 +187,10 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p><img src="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/Tableau-连接hive/tableau连接hive1.jpg" alt=""></p>
-<p>本文介绍使用tableau连接hive做一些大数据的分析。</p>
-<p><strong>软件环境</strong></p>
-<ul>
-<li>mac sierra</li>
-<li>tableau10.3 </li>
-<li>hive(集群使用的是阿里云的E-MapResuce)</li>
-</ul>
-<h2 id="下载安装ODBC"><a href="#下载安装ODBC" class="headerlink" title="下载安装ODBC"></a>下载安装ODBC</h2><p>打开<a href="https://www.cloudera.com/downloads/connectors/hive/odbc/2-5-25.html" target="_blank" rel="noopener">ODBC官网下载</a>链接，选择相应操作系统对应的版本，本文下载的是mac版本的odbc。下载完成后，和一般软件一样点击安装即可。</p>
-<p><img src="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/Tableau-连接hive/tableau连接hive2.jpg" alt=""></p>
-<p>ps: 需要登录后，方可下载，所以需要注册一个cloudera的账号。</p>
-<h2 id="配置连接信息"><a href="#配置连接信息" class="headerlink" title="配置连接信息"></a>配置连接信息</h2><p>打开tableau，依次选择：<strong>连接到服务器</strong>》<strong>更多…</strong>》<strong>Cloudera Hadoop</strong></p>
-<p><img src="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/Tableau-连接hive/tableau连接hive4.jpg" alt=""></p>
-<ul>
-<li>输入hive的host和端口号(默认为10000)。其中需要确保端口对外开放，没被禁止；</li>
-<li>类型选择HiveServer2;</li>
-<li>身份验证选择用户名，默认用户名为cloudera且没有密码。</li>
-</ul>
-<p><img src="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/Tableau-连接hive/tableau连接hive3.jpg" alt=""></p>
-<p>数据源连接信息配置好后，点击登录。如配置没有问题，则会进入以下界面。 </p>
-<p><img src="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/Tableau-连接hive/tableau连接hive5.jpg" alt=""></p>
-<ol>
-<li>第二部分(<strong>架构</strong>)用于选择数据库，直接在输入框中输入数据名。也可直接清空输入框，然后回车，会列出包含的所有数据库；</li>
-<li>第三部分(表)用于选择表，或编写一些自定义sql。如果清空输入框，回车，会列出已选的数据库下所有的数据表。</li>
-</ol>
-
+<p>本文介绍使用tableau连接hive做一些大数据的分析。<br>
+        
+          <a class="article-more-a" href="/2018/02/05/tableau连接hive/#more">more >></a>
+        
       
 
       
@@ -224,7 +203,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">hive, tableau</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">hive,tableau</a>
         		</li>
       		
 		</ul>
@@ -727,15 +706,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">tableau</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hive, tableau</a>
+                <a href="javascript:void(0)" class="js-tag color3">hive,tableau</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
