@@ -6,20 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hexo|hexo进阶 | cleland的杂货铺</title>
+  <title>tableau连接hive | cleland的杂货铺</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="标签截取文章的显示长度畅言评论系统开发流程包括备份策略提高百度指数使用markdownhere做文章排版(可独立)参考软文：https://www.jianshu.com/p/e766a7ea063a 加入音乐加入视频加入相册">
-<meta name="keywords" content="hexo">
+  <meta name="description" content="本文介绍使用tableau连接hive做一些大数据的分析。 软件环境  mac sierra tableau10.3  hive(集群使用的是阿里云的E-MapResuce)  下载安装ODBC打开ODBC官网下载链接，选择相应操作系统对应的版本，本文下载的是mac版本的odbc。下载完成后，和一般软件一样点击安装即可。  ps: 需要登录后，方可下载，所以需要注册一个cloudera的账号。">
+<meta name="keywords" content="hive, tableau">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo|hexo进阶">
-<meta property="og:url" content="http://yoursite.com/2018/01/20/Hexo-hexo进阶/index.html">
+<meta property="og:title" content="tableau连接hive">
+<meta property="og:url" content="http://yoursite.com/2018/02/05/tableau连接hive/index.html">
 <meta property="og:site_name" content="cleland的杂货铺">
-<meta property="og:description" content="标签截取文章的显示长度畅言评论系统开发流程包括备份策略提高百度指数使用markdownhere做文章排版(可独立)参考软文：https://www.jianshu.com/p/e766a7ea063a 加入音乐加入视频加入相册">
+<meta property="og:description" content="本文介绍使用tableau连接hive做一些大数据的分析。 软件环境  mac sierra tableau10.3  hive(集群使用的是阿里云的E-MapResuce)  下载安装ODBC打开ODBC官网下载链接，选择相应操作系统对应的版本，本文下载的是mac版本的odbc。下载完成后，和一般软件一样点击安装即可。  ps: 需要登录后，方可下载，所以需要注册一个cloudera的账号。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-01-21T11:30:54.361Z">
+<meta property="og:image" content="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/Tableau-连接hive/tableau连接hive1.jpg">
+<meta property="og:image" content="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/Tableau-连接hive/tableau连接hive2.jpg">
+<meta property="og:image" content="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/Tableau-连接hive/tableau连接hive4.jpg">
+<meta property="og:image" content="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/Tableau-连接hive/tableau连接hive3.jpg">
+<meta property="og:image" content="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/Tableau-连接hive/tableau连接hive5.jpg">
+<meta property="og:updated_time" content="2018-02-05T16:39:35.046Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo|hexo进阶">
-<meta name="twitter:description" content="标签截取文章的显示长度畅言评论系统开发流程包括备份策略提高百度指数使用markdownhere做文章排版(可独立)参考软文：https://www.jianshu.com/p/e766a7ea063a 加入音乐加入视频加入相册">
+<meta name="twitter:title" content="tableau连接hive">
+<meta name="twitter:description" content="本文介绍使用tableau连接hive做一些大数据的分析。 软件环境  mac sierra tableau10.3  hive(集群使用的是阿里云的E-MapResuce)  下载安装ODBC打开ODBC官网下载链接，选择相应操作系统对应的版本，本文下载的是mac版本的odbc。下载完成后，和一般软件一样点击安装即可。  ps: 需要登录后，方可下载，所以需要注册一个cloudera的账号。">
+<meta name="twitter:image" content="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/Tableau-连接hive/tableau连接hive1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="cleland的杂货铺" type="application/atom+xml">
   
@@ -165,28 +171,52 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Hexo-hexo进阶" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-tableau连接hive" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Hexo|hexo进阶
+      tableau连接hive
     </h1>
   
 
         
-        <a href="/2018/01/20/Hexo-hexo进阶/" class="archive-article-date">
-  	<time datetime="2018-01-20T03:05:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-20</time>
+        <a href="/2018/02/05/tableau连接hive/" class="archive-article-date">
+  	<time datetime="2018-02-05T15:19:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><h2 id="截取文章的显示长度"><a href="#截取文章的显示长度" class="headerlink" title="截取文章的显示长度"></a>截取文章的显示长度</h2><h2 id="畅言评论系统"><a href="#畅言评论系统" class="headerlink" title="畅言评论系统"></a>畅言评论系统</h2><h2 id="开发流程包括备份策略"><a href="#开发流程包括备份策略" class="headerlink" title="开发流程包括备份策略"></a>开发流程包括备份策略</h2><h2 id="提高百度指数"><a href="#提高百度指数" class="headerlink" title="提高百度指数"></a>提高百度指数</h2><h2 id="使用markdownhere做文章排版-可独立"><a href="#使用markdownhere做文章排版-可独立" class="headerlink" title="使用markdownhere做文章排版(可独立)"></a>使用markdownhere做文章排版(可独立)</h2><p>参考软文：<a href="https://www.jianshu.com/p/e766a7ea063a" target="_blank" rel="noopener">https://www.jianshu.com/p/e766a7ea063a</a></p>
-<h2 id="加入音乐"><a href="#加入音乐" class="headerlink" title="加入音乐"></a>加入音乐</h2><h2 id="加入视频"><a href="#加入视频" class="headerlink" title="加入视频"></a>加入视频</h2><h2 id="加入相册"><a href="#加入相册" class="headerlink" title="加入相册"></a>加入相册</h2>
+        <p><img src="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/Tableau-连接hive/tableau连接hive1.jpg" alt=""></p>
+<p>本文介绍使用tableau连接hive做一些大数据的分析。</p>
+<p><strong>软件环境</strong></p>
+<ul>
+<li>mac sierra</li>
+<li>tableau10.3 </li>
+<li>hive(集群使用的是阿里云的E-MapResuce)</li>
+</ul>
+<h2 id="下载安装ODBC"><a href="#下载安装ODBC" class="headerlink" title="下载安装ODBC"></a>下载安装ODBC</h2><p>打开<a href="https://www.cloudera.com/downloads/connectors/hive/odbc/2-5-25.html" target="_blank" rel="noopener">ODBC官网下载</a>链接，选择相应操作系统对应的版本，本文下载的是mac版本的odbc。下载完成后，和一般软件一样点击安装即可。</p>
+<p><img src="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/Tableau-连接hive/tableau连接hive2.jpg" alt=""></p>
+<p>ps: 需要登录后，方可下载，所以需要注册一个cloudera的账号。</p>
+<h2 id="配置连接信息"><a href="#配置连接信息" class="headerlink" title="配置连接信息"></a>配置连接信息</h2><p>打开tableau，依次选择：<strong>连接到服务器</strong>》<strong>更多…</strong>》<strong>Cloudera Hadoop</strong></p>
+<p><img src="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/Tableau-连接hive/tableau连接hive4.jpg" alt=""></p>
+<ul>
+<li>输入hive的host和端口号(默认为10000)。其中需要确保端口对外开放，没被禁止；</li>
+<li>类型选择HiveServer2;</li>
+<li>身份验证选择用户名，默认用户名为cloudera且没有密码。</li>
+</ul>
+<p><img src="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/Tableau-连接hive/tableau连接hive3.jpg" alt=""></p>
+<p>数据源连接信息配置好后，点击登录。如配置没有问题，则会进入以下界面。 </p>
+<p><img src="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/Tableau-连接hive/tableau连接hive5.jpg" alt=""></p>
+<ol>
+<li>第二部分(<strong>架构</strong>)用于选择数据库，直接在输入框中输入数据名。也可直接清空输入框，然后回车，会列出包含的所有数据库；</li>
+<li>第三部分(表)用于选择表，或编写一些自定义sql。如果清空输入框，回车，会列出已选的数据库下所有的数据表。</li>
+</ol>
+
       
 
       
@@ -199,7 +229,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">hive, tableau</a>
         		</li>
       		
 		</ul>
@@ -255,7 +285,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/01/20/Hexo-hexo进阶/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/02/05/tableau连接hive/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -269,18 +299,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2018/01/22/网站资源/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          网站资源
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/01/18/使用Hexo搭建个人博客/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">使用Hexo快速搭建个人博客</div>
+    <a href="/2018/01/22/网站资源/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">网站资源</div>
       <i class="icon-circle-right"></i>
     </a>
   
