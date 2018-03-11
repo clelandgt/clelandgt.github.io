@@ -169,9 +169,28 @@ var _hmt = _hmt || [];
     <article id="post-Hive-hive使用压缩" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/11/Hive-hive使用压缩/">Hive-hive使用压缩</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/11/Hive-hive使用压缩/" class="archive-article-date">
+  	<time datetime="2018-03-11T10:22:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-11</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Hive-hive使用压缩"><a href="#Hive-hive使用压缩" class="headerlink" title="Hive-hive使用压缩"></a>Hive-hive使用压缩</h1>
+        <p>hive中的数据使用压缩的好处(执行查询时会自动解压)：</p>
+<ol>
+<li>可以节约磁盘的空间，基于文本的压缩率可达40%+;</li>
+<li>压缩可以增加吞吐量和性能量(减小载入内存的数据量)，但是在压缩和解压过程中会增加CPU的开销。所以针对IO密集型的jobs(非计算密集型)可以使用压缩的方式提高性能。</li>
+</ol>
         
           <a class="article-more-a" href="/2018/03/11/Hive-hive使用压缩/#more">more >></a>
         
