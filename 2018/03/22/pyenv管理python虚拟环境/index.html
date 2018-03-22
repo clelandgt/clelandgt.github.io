@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018/3 | cleland的杂货铺</title>
+  <title>pyenv管理python虚拟环境 | cleland的杂货铺</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="技术分享与生活随笔">
+  <meta name="description" content="安装环境为macos 安装pyenv自动安装pyenv 1$ curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash 安装成功后在.bash_profile(.bashrc)中添加三行添加自动补全。 123export PATH=&amp;quot;$HOME/.pye">
 <meta name="keywords" content="python, 大数据, 数据分析, 爬虫, 程序猿">
-<meta property="og:type" content="website">
-<meta property="og:title" content="cleland的杂货铺">
-<meta property="og:url" content="http://yoursite.com/archives/2018/03/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pyenv管理python虚拟环境">
+<meta property="og:url" content="http://yoursite.com/2018/03/22/pyenv管理python虚拟环境/index.html">
 <meta property="og:site_name" content="cleland的杂货铺">
-<meta property="og:description" content="技术分享与生活随笔">
+<meta property="og:description" content="安装环境为macos 安装pyenv自动安装pyenv 1$ curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash 安装成功后在.bash_profile(.bashrc)中添加三行添加自动补全。 123export PATH=&amp;quot;$HOME/.pye">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-03-22T15:22:34.985Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="cleland的杂货铺">
-<meta name="twitter:description" content="技术分享与生活随笔">
+<meta name="twitter:title" content="pyenv管理python虚拟环境">
+<meta name="twitter:description" content="安装环境为macos 安装pyenv自动安装pyenv 1$ curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash 安装成功后在.bash_profile(.bashrc)中添加三行添加自动补全。 123export PATH=&amp;quot;$HOME/.pye">
   
     <link rel="alternative" href="/atom.xml" title="cleland的杂货铺" type="application/atom+xml">
   
@@ -164,76 +165,158 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-pyenv管理python虚拟环境" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      pyenv管理python虚拟环境
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/22/pyenv管理python虚拟环境/" class="archive-article-date">
+
+        
+        <a href="/2018/03/22/pyenv管理python虚拟环境/" class="archive-article-date">
   	<time datetime="2018-03-22T15:21:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-22</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/22/pyenv管理python虚拟环境/">pyenv管理python虚拟环境</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>安装环境为macos</p>
+<h2 id="安装pyenv"><a href="#安装pyenv" class="headerlink" title="安装pyenv"></a>安装pyenv</h2><p>自动安装pyenv</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash</span></span><br></pre></td></tr></table></figure>
+<p>安装成功后在<code>.bash_profile</code>(<code>.bashrc</code>)中添加三行添加自动补全。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export PATH=&quot;$HOME/.pyenv/bin:$PATH&quot;</span><br><span class="line">eval &quot;$(pyenv init -)&quot;</span><br><span class="line">eval &quot;$(pyenv virtualenv-init -)&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="安装python"><a href="#安装python" class="headerlink" title="安装python"></a>安装python</h2><p>安装一个python版本到$PYENV_ROOT/versions路径下。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> pyenv install -v 2.7.14</span></span><br></pre></td></tr></table></figure>
+<p>安装完成后，刷新数据库。并查看安装的python版本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> pyenv <span class="built_in">rehash</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> pyenv versions</span></span><br><span class="line">* system (set by /Users/cleland/.pyenv/version)</span><br><span class="line">2.7.14</span><br></pre></td></tr></table></figure>
+<p>设置全局python版本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> pyenv global 2.7.14</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> python  <span class="comment"># 确认python版本</span></span></span><br><span class="line">Python 2.7.14 (default, Mar 22 2018, 11:12:38)</span><br><span class="line">[GCC 4.2.1 Compatible Apple LLVM 9.0.0 (clang-900.0.39.2)] on darwin</span><br><span class="line">Type "help", "copyright", "credits" or "license" for more information.</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt;</span></span><br></pre></td></tr></table></figure>
+<p>可以安装和管理多个Python版本，TODO: 待补充相关内容。</p>
+<h2 id="Pyenv-virtualenv插件的使用"><a href="#Pyenv-virtualenv插件的使用" class="headerlink" title="Pyenv-virtualenv插件的使用"></a>Pyenv-virtualenv插件的使用</h2><p>使用以上方式安装pyenv，会自动安装virtualenv插件。</p>
+<h3 id="结合virtualenv创建虚拟环境"><a href="#结合virtualenv创建虚拟环境" class="headerlink" title="结合virtualenv创建虚拟环境"></a>结合virtualenv创建虚拟环境</h3><p>以2.7.14版本的python创建一个名为test_env的虚拟环境</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ pyenv virtualenv 2.7.14 test_env   # 创建一个名称test_env的虚拟环境</span><br><span class="line">$ pyenv virtualenvs  # 查看当前存在的虚拟环境</span><br><span class="line">  2.7.14/envs/test_env (created from /Users/cleland/.pyenv/versions/2.7.14)</span><br><span class="line">  test_env (created from /Users/cleland/.pyenv/versions/2.7.14)</span><br></pre></td></tr></table></figure>
+<p>删除虚拟环境最直接粗暴的方式是：直接删除虚拟环境的物理存储</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rm -rf ~/.pyenv/versions/myenv/</span><br></pre></td></tr></table></figure>
+<h3 id="virtualenv的使用"><a href="#virtualenv的使用" class="headerlink" title="virtualenv的使用"></a>virtualenv的使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ pyenv activate test_env  # 激活test_env虚拟环境</span><br><span class="line">$ pyenv deactivate  # 退出虚拟环境</span><br></pre></td></tr></table></figure>
+<h2 id="更改pip源"><a href="#更改pip源" class="headerlink" title="更改pip源"></a>更改pip源</h2><p>国内使用pip下载安装第三方库，比较慢。可以使用aliyun提供的镜像。创建如下的<code>$HOME/.pip/pip.conf</code>文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url = http://mirrors.aliyun.com/pypi/simple/</span><br><span class="line"></span><br><span class="line">[install]</span><br><span class="line">trusted-host=mirrors.aliyun.com</span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="http://einverne.github.io/post/2017/04/pyenv.html" target="_blank" rel="noopener">使用pyenv管理Python版本</a> </li>
+<li><a href="https://www.hi-linux.com/posts/63429.html" target="_blank" rel="noopener">使用pyenv搭建python虚拟环境</a></li>
+</ul>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/03/22/pyenv管理python虚拟环境/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/11/Hive-hive使用压缩/" class="archive-article-date">
-  	<time datetime="2018-03-11T10:22:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-11</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/03/11/Hive-hive使用压缩/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hive|hive使用压缩</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/11/Hive-hive使用压缩/">Hive|hive使用压缩</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -256,8 +339,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
