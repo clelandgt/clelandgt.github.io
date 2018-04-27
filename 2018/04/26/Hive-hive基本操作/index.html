@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hive-hive基本操作 | cleland的杂货铺</title>
+  <title>Hive 基本操作 | cleland的杂货铺</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="python, 大数据, 数据分析, 爬虫, 程序猿">
+  <meta name="keywords" content="原创,hive,markdown">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hive-hive基本操作">
+<meta property="og:title" content="Hive 基本操作">
 <meta property="og:url" content="http://yoursite.com/2018/04/26/Hive-hive基本操作/index.html">
 <meta property="og:site_name" content="cleland的杂货铺">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/Hive-hive使用压缩/hive-hive使用压缩1.jpg">
-<meta property="og:updated_time" content="2018-04-25T16:24:01.539Z">
+<meta property="og:updated_time" content="2018-04-27T01:03:55.258Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hive-hive基本操作">
+<meta name="twitter:title" content="Hive 基本操作">
 <meta name="twitter:image" content="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/Hive-hive使用压缩/hive-hive使用压缩1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="cleland的杂货铺" type="application/atom+xml">
@@ -171,13 +171,13 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      Hive-hive基本操作
+      Hive 基本操作
     </h1>
   
 
         
         <a href="/2018/04/26/Hive-hive基本操作/" class="archive-article-date">
-  	<time datetime="2018-04-25T16:22:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-26</time>
+  	<time datetime="2018-04-25T16:22:15.371Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-26</time>
 </a>
         
       </header>
@@ -212,9 +212,17 @@ var _hmt = _hmt || [];
 <li>删除表</li>
 <li>修改表</li>
 <li>表的存储格式</li>
+<li>快速表复制</li>
 </ul>
 </li>
-<li>数据导入与导出</li>
+<li>数据操作<ul>
+<li>装载数据</li>
+<li>将查询语句的结果插入数据</li>
+<li>静态分区+动态分区插入</li>
+<li>单个查询语句中创建表并加载数据</li>
+<li>导出数据</li>
+</ul>
+</li>
 <li>常用函数</li>
 </ul>
 </li>
@@ -294,6 +302,7 @@ var _hmt = _hmt || [];
 </tr>
 </tbody>
 </table>
+<p>TODO: 整型的数据范围</p>
 <h3 id="集合数据类型"><a href="#集合数据类型" class="headerlink" title="集合数据类型"></a>集合数据类型</h3><table>
 <thead>
 <tr>
@@ -336,11 +345,28 @@ var _hmt = _hmt || [];
 <p>hive&gt; DROP TABLE IF EXISTS test.employees;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">由于hdfs的回收机制，数据会移动到`/user/$USER/.Trash`</span><br><span class="line"></span><br><span class="line">#### 修改表</span><br><span class="line">**表属性**</span><br></pre></td></tr></table></figure></p>
 <p>hive&gt; ALTER TABLE table1 RENAME TO table2;  – 表table1重名为table2<br>hive&gt; ALTER TABLE log_messages SET TBLPROPERTIES(‘notes’=’The process id is no longer captured’)  – 修改表属性<br>hive&gt; ALTER TABLE log_messages PARTITION(year=2012,month=1,day=1) SET FILEFORMAT SEQUENCFILE;  – 修改存储属性<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**列**</span><br></pre></td></tr></table></figure></p>
 <p>hive&gt; ALTER TABLE log_messages CHANGE COLUMN hms hours_minutes_seconds INT COMMENT ‘The houes, minutes, and seconds part of the timestamp AFTER severity’;  – 修改列<br>hive&gt; ALTER TABLE log_messages ADD COLUMNS(app_name STRING, session_id STRING);  – 增加列<br>hive&gt; – 待补充删除或者替换列<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**分区**</span><br></pre></td></tr></table></figure></p>
-<p>hive&gt; ALTER TABLE log_messages ADD IF NOT EXISTS PATITION(year=2011,month=1,day=1) LOCATION ‘/log/2011/01/01’;  – 添加分区<br>hive&gt; ALTER TABLE log_messages PARTITION(year=2011,month=12,day=2) SET LOCATION ‘s3n://ourbucket/logs/2011/01/01’  – 修改分区(不会移动或删除数据)<br>hive&gt; ALTER TABLE log_messages DROP IF EXISTS PARTITION(year=2011,month=12,day=2);  – 删除分区<br>```</p>
-<h4 id="表的存储格式"><a href="#表的存储格式" class="headerlink" title="表的存储格式"></a>表的存储格式</h4><p>将在高级用法中补充<strong>存储格式+压缩+分区+分桶</strong>实现hive的优化。</p>
-<h3 id="数据导入与导出"><a href="#数据导入与导出" class="headerlink" title="数据导入与导出"></a>数据导入与导出</h3><h3 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h3><h2 id="udf"><a href="#udf" class="headerlink" title="udf"></a>udf</h2><h2 id="待写"><a href="#待写" class="headerlink" title="待写"></a>待写</h2><ul>
+<p>hive&gt; ALTER TABLE log_messages ADD IF NOT EXISTS PATITION(year=2011,month=1,day=1) LOCATION ‘/log/2011/01/01’;  – 添加分区<br>hive&gt; ALTER TABLE log_messages PARTITION(year=2011,month=12,day=2) SET LOCATION ‘s3n://ourbucket/logs/2011/01/01’  – 修改分区(不会移动或删除数据)<br>hive&gt; ALTER TABLE log_messages DROP IF EXISTS PARTITION(year=2011,month=12,day=2);  – 删除分区<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">#### 表的存储格式</span><br><span class="line">将在高级用法中补充**存储格式+压缩+分区+分桶**实现hive的优化。</span><br><span class="line"></span><br><span class="line">#### 快速表复制</span><br><span class="line">TODO: 待补充</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 数据操作</span><br><span class="line">当前数据集在master1上`/home/devops/datasets`目录.</span><br><span class="line"></span><br><span class="line">``` sql</span><br><span class="line">-- 内部表</span><br><span class="line">DROP TABLE IF EXISTS test.users;</span><br><span class="line">CREATE TABLE IF NOT EXISTS test.users(</span><br><span class="line">    id INT COMMENT &apos;用户id&apos;,</span><br><span class="line">    age TINYINT COMMENT &apos;年龄&apos;,</span><br><span class="line">    gender STRING COMMENT &apos;性别&apos;,</span><br><span class="line">    occupation STRING COMMENT &apos;职业&apos;,</span><br><span class="line">    zip_code INT COMMENT &apos;邮编&apos;</span><br><span class="line">)</span><br><span class="line">ROW FORMAT DELIMITED FIELDS TERMINATED BY &apos;|&apos;;</span><br><span class="line"></span><br><span class="line">-- 外部表</span><br><span class="line">DROP TABLE IF EXISTS test.users_mini;</span><br><span class="line">CREATE EXTERNAL TABLE IF NOT EXISTS test.users_mini(</span><br><span class="line">    id INT COMMENT &apos;用户id&apos;,</span><br><span class="line">    age TINYINT COMMENT &apos;年龄&apos;</span><br><span class="line">)</span><br><span class="line">ROW FORMAT DELIMITED FIELDS TERMINATED BY &apos;|&apos;</span><br><span class="line">LOCATION &apos;/user/hive/warehouse/test.db/users_mini&apos;;</span><br></pre></td></tr></table></figure></p>
+<h4 id="装载数据"><a href="#装载数据" class="headerlink" title="装载数据"></a>装载数据</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">LOAD</span> <span class="keyword">DATA</span> <span class="keyword">LOCAL</span> INPATH <span class="string">'/home/devops/datasets/u.user'</span></span><br><span class="line">OVERWRITE <span class="keyword">INTO</span> <span class="keyword">TABLE</span> test.users;</span><br></pre></td></tr></table></figure>
+<p>其中加LOCAL指指定master服务器的本地文件，不加LOCAL指hdfs上的文件。 查看加载的数据：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hive&gt; SELECT * FROM test.users LIMIT 2;</span><br><span class="line">OK</span><br><span class="line">1   24  M   technician  85711</span><br><span class="line">2   53  F   other   94043</span><br></pre></td></tr></table></figure>
+<p>如果需指定加载的数据到那个分区,如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">LOAD</span> <span class="keyword">DATA</span> <span class="keyword">LOCAL</span> INPATH <span class="string">'/home/devops/datasets/u.user'</span></span><br><span class="line">OVERWRITE <span class="keyword">INTO</span> <span class="keyword">TABLE</span> test.users</span><br><span class="line">PATITION (country=<span class="string">'China'</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="将查询语句的结果插入数据"><a href="#将查询语句的结果插入数据" class="headerlink" title="将查询语句的结果插入数据"></a>将查询语句的结果插入数据</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> OVERWRITE <span class="keyword">TABLE</span> test.users_mini</span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    <span class="keyword">id</span></span><br><span class="line">    ,age</span><br><span class="line"><span class="keyword">FROM</span> test.users;</span><br></pre></td></tr></table></figure>
+<p>查看插入的数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hive&gt; SELECT * FROM test.users_mini LIMIT 2;</span><br><span class="line">OK</span><br><span class="line">1   24</span><br><span class="line">2   53</span><br></pre></td></tr></table></figure>
+<h4 id="静态分区-动态分区插入"><a href="#静态分区-动态分区插入" class="headerlink" title="静态分区+动态分区插入"></a>静态分区+动态分区插入</h4><p>TODO: 待补充</p>
+<h4 id="单个查询语句中创建表并加载数据"><a href="#单个查询语句中创建表并加载数据" class="headerlink" title="单个查询语句中创建表并加载数据"></a>单个查询语句中创建表并加载数据</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> test.ge_users <span class="keyword">AS</span></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    <span class="keyword">id</span></span><br><span class="line">    ,gender</span><br><span class="line"><span class="keyword">FROM</span> test.users;</span><br></pre></td></tr></table></figure>
+<p>但是这个不适用与外部表，特别是需要指定分区位置的外部表。</p>
+<h4 id="导出数据"><a href="#导出数据" class="headerlink" title="导出数据"></a>导出数据</h4><p>如果hive表对应的数据文件格式刚好是用户需要的格式，只需要拷贝相应文件或文件夹就行。如不是，可使用一下的方式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">INSERT OVERWRITE LOCAL DIRECTORY &apos;/home/devops/users&apos;</span><br><span class="line">SELECT  </span><br><span class="line">    id,</span><br><span class="line">    age,</span><br><span class="line">    gender,</span><br><span class="line">    occupation,</span><br><span class="line">    zip_code</span><br><span class="line">FROM test.users;</span><br></pre></td></tr></table></figure>
+<h3 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">--  聚合函数</span><br><span class="line">count(expr)</span><br><span class="line">sum(col)</span><br><span class="line">avg(col)</span><br><span class="line">min(col)</span><br><span class="line">max(col)</span><br><span class="line">collect_set(col)  -- 返回集合col元素排重后的数组(select非groupby的字段时可使用)</span><br><span class="line"></span><br><span class="line">-- 日期函数</span><br><span class="line">to_date(STRING timestamp)  -- 返回时间字符串的日期部分，例如：to_date(&apos;1970-01-01 00:00:00&apos;)=&apos;1970-01-01&apos;</span><br><span class="line">datediff(STRING start_date, STRING end_date)  -- 计算两个日期之间的天数，例如：datediff(&apos;2018-04-04&apos;, &apos;2018-04-01&apos;)=3</span><br><span class="line">date_add(STRING start_date, INT day)  -- 从日期减去day天数，例如：date_add(&apos;2018-04-01&apos;, 4)=&apos;2018-04-05&apos;</span><br><span class="line">date_sub(STRING start_date, INT day)  -- 从日期减去day天数，例如：date_sub(&apos;2018-04-20&apos;, 4)=&apos;2018-04-16&apos;</span><br><span class="line"></span><br><span class="line">year(STRING date)  -- 返回时间字符串中的年</span><br><span class="line">month(STRING date)  -- 返回时间字符串中的月</span><br><span class="line">day(STRING date)  -- 返回时间字符串中的日期</span><br><span class="line">hour(STRING date)  -- 返回时间字符串中的时</span><br><span class="line">minute(STRING date)  -- 返回时间字符串中的分</span><br><span class="line">second(STRING date)  -- 返回时间字符串中的秒</span><br><span class="line">weekofyear(STRING date)  -- 一年的第几周</span><br><span class="line"></span><br><span class="line">--  其他内置</span><br><span class="line">concat(STRING s1, STRING s2)</span><br><span class="line">concat_ws(STRING separator, STRING s1, STRING s2)</span><br><span class="line">format_number(NUMBER x, INT d)</span><br><span class="line">get_json_object(STRING json_string, STRING PATH)</span><br><span class="line">length(STRING s)</span><br><span class="line">ltrim(STRING s)  -- 将字符串s前面出现的空格全部去除掉</span><br><span class="line">rtrim(STRING s)  -- 将字符串s后面出现的空格全部去除掉</span><br><span class="line">trim(STRING s)  -- 将字符串s前后面出现的空格全部去除掉</span><br></pre></td></tr></table></figure>
+<h2 id="udf"><a href="#udf" class="headerlink" title="udf"></a>udf</h2><h2 id="待写"><a href="#待写" class="headerlink" title="待写"></a>待写</h2><ul>
 <li>性能优化1 (配置与sql相关优化)</li>
-<li>性能优化2（分表+分桶+压缩 <a href="https://blog.csdn.net/djd1234567/article/details/51581312" target="_blank" rel="noopener">参考连接</a>）</li>
+<li>性能优化2（分表(动态分表)+分桶+压缩 <a href="https://blog.csdn.net/djd1234567/article/details/51581312" target="_blank" rel="noopener">参考连接</a>）</li>
+<li>hive+hbase整合</li>
+<li>hive第三方接口</li>
+<li>hive执行计划</li>
+<li>hive锁表</li>
 </ul>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
 <li>《Hive编程指南》</li>
@@ -354,6 +380,25 @@ var _hmt = _hmt || [];
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">原创</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hive</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">markdown</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -544,6 +589,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">原创</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hive</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
