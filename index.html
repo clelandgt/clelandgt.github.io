@@ -166,19 +166,145 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Hive-hive基本操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Tableau高级-TabPy的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/26/Hive-hive基本操作/">Hive 基本操作</a>
+      <a class="article-title" href="/2018/05/16/Tableau高级-TabPy的使用/">Tableau 高级 | TabPy的使用</a>
     </h1>
   
 
         
-        <a href="/2018/04/26/Hive-hive基本操作/" class="archive-article-date">
+        <a href="/2018/05/16/Tableau高级-TabPy的使用/" class="archive-article-date">
+  	<time datetime="2018-05-16T15:35:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+<p>Tableau桌面版10.1以上的版本支持使用TabPy。</p>
+<!-- MarkdownTOC -->
+<ul>
+<li>TabPy简介</li>
+<li>TabPy安装与配置<ul>
+<li>安装TabPy</li>
+<li>启动TabPy服务</li>
+</ul>
+</li>
+<li>TabPy的使用<ul>
+<li>TableauDesktop</li>
+<li>TableauServer</li>
+<li>TabPy的使用</li>
+<li>调试与打印日志</li>
+</ul>
+</li>
+<li>参考</li>
+</ul>
+<!-- /MarkdownTOC -->
+<h2 id="TabPy简介"><a href="#TabPy简介" class="headerlink" title="TabPy简介"></a>TabPy简介</h2><p>TabPy实现了tableau的计算字段里嵌入python或R代码(可加入一些机器学习或数据处理的库)。它是一个基于Tornado和其他Python库的Python进程，将计算字段嵌入的代码传输到后台(web后台基于Tornado)，由后台计算完后(可调用第三方库如机器学习相关的库)将结果再放回到前端展示。所以TabPy由两个主要组件构成：</p>
+<ol>
+<li>基于Tornado的web服务进程(<strong>Server</strong>)，运行REST API传回的python代码，执行完毕后，再传回前端。</li>
+<li><strong>client library</strong>.</li>
+</ol>
+<h2 id="TabPy安装与配置"><a href="#TabPy安装与配置" class="headerlink" title="TabPy安装与配置"></a>TabPy安装与配置</h2><h3 id="安装TabPy"><a href="#安装TabPy" class="headerlink" title="安装TabPy"></a>安装TabPy</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /opt  <span class="comment"># 一般自定义安装的软件安装包都放到这儿</span></span><br><span class="line">$ sudo wget https://github.com/tableau/TabPy/archive/master.zip  <span class="comment"># 下载TabPy</span></span><br><span class="line">$ sudo unzip master.zip  <span class="comment"># 解压到文件夹TabPy-master</span></span><br><span class="line">$ sudo chown -R devops:devops TabPy-master  <span class="comment"># 修改该目录权限为当前用户devops</span></span><br><span class="line">$ <span class="built_in">cd</span> TabPy-master</span><br><span class="line">$ chmod u+x setup.sh</span><br><span class="line">$ ./setup.sh  <span class="comment"># 安装相应的第三方库，然后启动TabPy服务</span></span><br></pre></td></tr></table></figure>
+<h3 id="启动TabPy服务"><a href="#启动TabPy服务" class="headerlink" title="启动TabPy服务"></a>启动TabPy服务</h3><p>首次安装成功后，会启动TabPy服务，终端会打印出以后启动脚本的路径:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ ./setup.sh</span><br><span class="line">...</span><br><span class="line">Successfully installed Tornado-JSON-1.3.2 future-0.16.0 futures-3.2.0 simplejson-3.15.0 tabpy-server-0.2</span><br><span class="line">~~~~~~~~~~~~~~~  Installation completed  ~~~~~~~~~~~~~~~</span><br><span class="line"></span><br><span class="line">From now on, you can start the server by running /home/devops/anaconda/envs/Tableau-Python-Server/lib/python2.7/site-packages/tabpy_server/startup.sh</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>如上启动脚本的路径为 <code>/home/devops/anaconda/envs/Tableau-Python-Server/lib/python2.7/site-packages/tabpy_server/startup.sh</code></p>
+<p>当前生产环境的TabPy部署在数仓服务器上(10.30.49.80)</p>
+<h2 id="TabPy的使用"><a href="#TabPy的使用" class="headerlink" title="TabPy的使用"></a>TabPy的使用</h2><h3 id="TableauDesktop"><a href="#TableauDesktop" class="headerlink" title="TableauDesktop"></a>TableauDesktop</h3><p>在TableauDesktop使用TabPy需进行以下配置。</p>
+<ol>
+<li>Tableau工具栏中依次点击Help-&gt;Settings and Performance-&gt;Manage External Service Connection。 </li>
+<li>键入服务器地址(如果TabPy安装在本地，服务器地址为localhost)和端口号(默认为9004)</li>
+</ol>
+<h3 id="TableauServer"><a href="#TableauServer" class="headerlink" title="TableauServer"></a>TableauServer</h3><p>发布到TableauServer，需要在服务器端配置连接Tabpy.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ tabadmin stop</span><br><span class="line">$ tabadmin set vizqlserver.allow_insecure_scripts true</span><br><span class="line">$ tabadmin set vizqlserver.extsvc.host &lt;ip address or host name of the machine hosting TabPy&gt;</span><br><span class="line">$ tabadmin set vizqlserver.extsvc.port &lt;port for TabPy&gt;</span><br><span class="line">$ tabadmin configure</span><br><span class="line">$ tabadmin start</span><br></pre></td></tr></table></figure>
+<h3 id="TabPy的使用-1"><a href="#TabPy的使用-1" class="headerlink" title="TabPy的使用"></a>TabPy的使用</h3><p>当前Tableau主要通过4个不同返回类型的函数来调用TabPy来满足使用场景: <code>SCRIPT_INT</code>, <code>SCRIPT_REAL</code>, <code>SCRIPT_STR</code>, <code>SCRIPT_BOOL</code>。这四个函数内容大体都为：Python(或R)脚本字符串 + 参数1[参数2，参数n] 且都需要return。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 计算字段1</span><br><span class="line">SCRIPT_STR(&quot;</span><br><span class="line">import requests</span><br><span class="line">return [requests.get(&apos;http://boss.huizhaofang.com/api/if/calc_breach_refund/?contract_no=&#123;&#125;&apos;.format(item)).text for item in _arg1]&quot;, ATTR([contract_no]))</span><br><span class="line"></span><br><span class="line"># 计算字段2</span><br><span class="line">SCRIPT_REAL(&quot;</span><br><span class="line">import json</span><br><span class="line">return [json.loads(item)[&apos;result&apos;][&apos;refund_price&apos;][&apos;breach_price&apos;]/100.00 for item in _arg1]&quot;, [response])</span><br></pre></td></tr></table></figure>
+<h3 id="调试与打印日志"><a href="#调试与打印日志" class="headerlink" title="调试与打印日志"></a>调试与打印日志</h3><ul>
+<li>在嵌入python代码里使用print函数。相关内容会打印到TabPy服务端的日志里，如：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SCRIPT_REAL(&quot;</span><br><span class="line">print(_arg1) </span><br><span class="line">return sum(_arg1)&quot;, SUM([Sales]))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>将中间过程的数据打印到csv里</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://community.tableau.com/docs/DOC-10856" target="_blank" rel="noopener">Tableau and Python Integration</a></li>
+<li><a href="https://github.com/tableau/TabPy/blob/master/TableauConfiguration.md" target="_blank" rel="noopener">Using Python in Tableau Calculations</a></li>
+<li><a href="https://community.tableau.com/message/618129#618129" target="_blank" rel="noopener">Tableau Integration with Python - Step by Step</a></li>
+<li><a href="https://onlinehelp.tableau.com/current/pro/desktop/zh-cn/r_connection_manage.html" target="_blank" rel="noopener">将表达式传递到外部服务</a></li>
+<li><a href="https://onlinehelp.tableau.com/current/pro/desktop/zh-cn/r_connection_troubleshoot.html" target="_blank" rel="noopener">外部服务连接疑难解答</a></li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/16/Tableau高级-TabPy的使用/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Hive基础-基本操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/26/Hive基础-基本操作/">Hive 基本操作</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/26/Hive基础-基本操作/" class="archive-article-date">
   	<time datetime="2018-04-25T16:22:15.371Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-26</time>
 </a>
         
@@ -188,7 +314,7 @@ var _hmt = _hmt || [];
       
         <p><img src="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/Hive-hive使用压缩/hive-hive使用压缩1.jpg" alt=""><br>
         
-          <a class="article-more-a" href="/2018/04/26/Hive-hive基本操作/#more">more >></a>
+          <a class="article-more-a" href="/2018/04/26/Hive基础-基本操作/#more">more >></a>
         
       
 
@@ -220,7 +346,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/26/Hive-hive基本操作/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/04/26/Hive基础-基本操作/">展开全文 >></a>
         </p>
       
 
@@ -381,19 +507,19 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Hive-hive使用压缩" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Hive基础-使用压缩" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/11/Hive-hive使用压缩/">Hive|hive使用压缩</a>
+      <a class="article-title" href="/2018/03/11/Hive基础-使用压缩/">Hive|hive使用压缩</a>
     </h1>
   
 
         
-        <a href="/2018/03/11/Hive-hive使用压缩/" class="archive-article-date">
+        <a href="/2018/03/11/Hive基础-使用压缩/" class="archive-article-date">
   	<time datetime="2018-03-11T10:22:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-11</time>
 </a>
         
@@ -407,7 +533,7 @@ var _hmt = _hmt || [];
 <li>压缩可以增加吞吐量和性能量(减小载入内存的数据量)，但是在压缩和解压过程中会增加CPU的开销。所以针对IO密集型的jobs(非计算密集型)可以使用压缩的方式提高性能。</li>
 </ol>
         
-          <a class="article-more-a" href="/2018/03/11/Hive-hive使用压缩/#more">more >></a>
+          <a class="article-more-a" href="/2018/03/11/Hive基础-使用压缩/#more">more >></a>
         
       
 
@@ -420,7 +546,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/11/Hive-hive使用压缩/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/03/11/Hive基础-使用压缩/">展开全文 >></a>
         </p>
       
 
@@ -450,19 +576,19 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-tableau连接hive" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Tableau基础-连接hive" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/05/tableau连接hive/">tableau连接hive</a>
+      <a class="article-title" href="/2018/02/05/Tableau基础-连接hive/">tableau连接hive</a>
     </h1>
   
 
         
-        <a href="/2018/02/05/tableau连接hive/" class="archive-article-date">
+        <a href="/2018/02/05/Tableau基础-连接hive/" class="archive-article-date">
   	<time datetime="2018-02-05T15:19:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-05</time>
 </a>
         
@@ -473,7 +599,7 @@ var _hmt = _hmt || [];
         <p><img src="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/Tableau-连接hive/tableau连接hive1.jpg" alt=""></p>
 <p>本文介绍使用tableau连接hive做一些大数据的分析。<br>
         
-          <a class="article-more-a" href="/2018/02/05/tableau连接hive/#more">more >></a>
+          <a class="article-more-a" href="/2018/02/05/Tableau基础-连接hive/#more">more >></a>
         
       
 
@@ -497,7 +623,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/05/tableau连接hive/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/02/05/Tableau基础-连接hive/">展开全文 >></a>
         </p>
       
 
@@ -756,19 +882,19 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Tableau-优化数据提取" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Tableau基础-优化数据提取" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/18/Tableau-优化数据提取/">Tableau | 优化数据提取</a>
+      <a class="article-title" href="/2018/01/18/Tableau基础-优化数据提取/">Tableau | 优化数据提取</a>
     </h1>
   
 
         
-        <a href="/2018/01/18/Tableau-优化数据提取/" class="archive-article-date">
+        <a href="/2018/01/18/Tableau基础-优化数据提取/" class="archive-article-date">
   	<time datetime="2018-01-17T16:35:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-18</time>
 </a>
         
@@ -779,7 +905,7 @@ var _hmt = _hmt || [];
         <p><img src="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/figure_captions/waters-3084551_1920.jpg" alt=""></p>
 <p>本文TableauServer基于win10环境<br>
         
-          <a class="article-more-a" href="/2018/01/18/Tableau-优化数据提取/#more">more >></a>
+          <a class="article-more-a" href="/2018/01/18/Tableau基础-优化数据提取/#more">more >></a>
         
       
 
@@ -803,7 +929,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/18/Tableau-优化数据提取/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/01/18/Tableau基础-优化数据提取/">展开全文 >></a>
         </p>
       
 
@@ -833,71 +959,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/18/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/18/hello-world/" class="archive-article-date">
-  	<time datetime="2018-01-17T16:34:04.002Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.<br>
-        
-          <a class="article-more-a" href="/2018/01/18/hello-world/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/18/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 
 
@@ -991,6 +1056,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">原创</a>
               </li>
              
@@ -1003,15 +1072,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color3">hive,tableau</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">tableau</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">hive,tableau</a>
               </li>
              
               <li class="article-tag-list-item">

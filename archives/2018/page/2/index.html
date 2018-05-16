@@ -6,22 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hive|hive使用压缩 | cleland的杂货铺</title>
+  <title>Archives: 2018 | cleland的杂货铺</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="hive中的数据使用压缩的好处(执行查询时会自动解压)：  可以节约磁盘的空间，基于文本的压缩率可达40%+; 压缩可以增加吞吐量和性能量(减小载入内存的数据量)，但是在压缩和解压过程中会增加CPU的开销。所以针对IO密集型的jobs(非计算密集型)可以使用压缩的方式提高性能。">
+  <meta name="description" content="技术分享与生活随笔">
 <meta name="keywords" content="python, 大数据, 数据分析, 爬虫, 程序猿">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Hive|hive使用压缩">
-<meta property="og:url" content="http://yoursite.com/2018/03/11/Hive-hive使用压缩/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="cleland的杂货铺">
+<meta property="og:url" content="http://yoursite.com/archives/2018/page/2/index.html">
 <meta property="og:site_name" content="cleland的杂货铺">
-<meta property="og:description" content="hive中的数据使用压缩的好处(执行查询时会自动解压)：  可以节约磁盘的空间，基于文本的压缩率可达40%+; 压缩可以增加吞吐量和性能量(减小载入内存的数据量)，但是在压缩和解压过程中会增加CPU的开销。所以针对IO密集型的jobs(非计算密集型)可以使用压缩的方式提高性能。">
+<meta property="og:description" content="技术分享与生活随笔">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/Hive-hive使用压缩/hive-hive使用压缩1.jpg">
-<meta property="og:updated_time" content="2018-03-11T10:54:06.644Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hive|hive使用压缩">
-<meta name="twitter:description" content="hive中的数据使用压缩的好处(执行查询时会自动解压)：  可以节约磁盘的空间，基于文本的压缩率可达40%+; 压缩可以增加吞吐量和性能量(减小载入内存的数据量)，但是在压缩和解压过程中会增加CPU的开销。所以针对IO密集型的jobs(非计算密集型)可以使用压缩的方式提高性能。">
-<meta name="twitter:image" content="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/Hive-hive使用压缩/hive-hive使用压缩1.jpg">
+<meta name="twitter:title" content="cleland的杂货铺">
+<meta name="twitter:description" content="技术分享与生活随笔">
   
     <link rel="alternative" href="/atom.xml" title="cleland的杂货铺" type="application/atom+xml">
   
@@ -167,213 +164,52 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Hive-hive使用压缩" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Hive|hive使用压缩
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/01/18/hello-world/" class="archive-article-date">
+  	<time datetime="2018-01-17T16:34:04.002Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-18</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/01/18/hello-world/">Hello World</a>
     </h1>
   
 
-        
-        <a href="/2018/03/11/Hive-hive使用压缩/" class="archive-article-date">
-  	<time datetime="2018-03-11T10:22:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/Hive-hive使用压缩/hive-hive使用压缩1.jpg" alt=""><br>hive中的数据使用压缩的好处(执行查询时会自动解压)：</p>
-<ol>
-<li>可以节约磁盘的空间，基于文本的压缩率可达40%+;</li>
-<li>压缩可以增加吞吐量和性能量(减小载入内存的数据量)，但是在压缩和解压过程中会增加CPU的开销。所以针对IO密集型的jobs(非计算密集型)可以使用压缩的方式提高性能。</li>
-</ol>
-<a id="more"></a>
-<h2 id="主流的压缩算法"><a href="#主流的压缩算法" class="headerlink" title="主流的压缩算法"></a>主流的压缩算法</h2><p>查看集群的支持的压缩算法.</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hive -e "set io.compression.codecs"</span><br></pre></td></tr></table></figure>
-<p>返回支持的压缩算法<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">io.compression.codecs=org.apache.hadoop.io.compress.DefaultCodec,</span><br><span class="line">org.apache.hadoop.io.compress.GzipCodec,</span><br><span class="line">org.apache.hadoop.io.compress.BZip2Codec,</span><br><span class="line">org.apache.hadoop.io.compress.DeflateCodec,</span><br><span class="line">org.apache.hadoop.io.compress.SnappyCodec,</span><br><span class="line">org.apache.hadoop.io.compress.Lz4Codec</span><br></pre></td></tr></table></figure></p>
-<p>常用的压缩算法：</p>
-<ul>
-<li>Snappy</li>
-<li>Gzip</li>
-<li>ZLIB</li>
-</ul>
-<h2 id="hive文件格式"><a href="#hive文件格式" class="headerlink" title="hive文件格式"></a>hive文件格式</h2><ul>
-<li><strong>TEXTFILE</strong>: 默认格式，数据不做压缩，磁盘开销大。如需压缩，可使用Gzip,Bzip2压缩算法，但是不会对数据进行切分;</li>
-<li><strong>SEQUENCEFILE</strong>: 二进制文件，具有使用方便、可分割、可压缩.SequenceFile支持三种压缩选择：NONE，RECORD(压缩率低)，BLOCK(常用且压缩性能最好);</li>
-<li><strong>RCFILE</strong>: RCFILE是一种行列存储相结合的存储方式;</li>
-<li><strong>ORCFILE</strong>: 0.11以后出现.</li>
-</ul>
-<h2 id="hive配置压缩"><a href="#hive配置压缩" class="headerlink" title="hive配置压缩"></a>hive配置压缩</h2><p>建表时申明文件的存储格式，默认为TEXTFILE。如使用压缩常使用分块压缩<strong>SEQUENCEFILE</strong>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE A(</span><br><span class="line">    ...</span><br><span class="line">)</span><br><span class="line">STORED AS SEQUENCEFILE</span><br></pre></td></tr></table></figure>
-<p>数据处理的中间过程和结果使用<strong>Snappy</strong>算法进行压缩。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-- 任务中间压缩</span><br><span class="line">set hive.exec.compress.intermediate=true;</span><br><span class="line">set hive.intermediate.compression.codec=org.apache.hadoop.io.compress.SnappyCodec;</span><br><span class="line">set hive.intermediate.compression.type=BLOCK;</span><br><span class="line"></span><br><span class="line">-- map/reduce 输出压缩</span><br><span class="line">set hive.exec.compress.output=true;</span><br><span class="line">set mapred.output.compression.codec=org.apache.hadoop.io.compress.SnappyCodec;</span><br><span class="line">set mapred.output.compression.type=BLOCK;</span><br></pre></td></tr></table></figure>
-<h2 id="压缩测试案例"><a href="#压缩测试案例" class="headerlink" title="压缩测试案例"></a>压缩测试案例</h2><p>Hive原始数据为119.2G。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">压缩算法</th>
-<th style="text-align:left">TEXTFILE格式</th>
-<th style="text-align:left">SEQUENCEFILE</th>
-<th style="text-align:left">RCFILE</th>
-<th style="text-align:left">ORCFILE</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">不压缩</td>
-<td style="text-align:left">119.2G</td>
-<td style="text-align:left">54.1G</td>
-<td style="text-align:left">20.0G</td>
-<td style="text-align:left">98G</td>
-</tr>
-<tr>
-<td style="text-align:left">Snappy</td>
-<td style="text-align:left">30.2G</td>
-<td style="text-align:left">23.6G</td>
-<td style="text-align:left">13.6G</td>
-<td style="text-align:left">27.0G</td>
-</tr>
-<tr>
-<td style="text-align:left">Gzip</td>
-<td style="text-align:left">18.8G</td>
-<td style="text-align:left">14.1G</td>
-<td style="text-align:left">不支持</td>
-<td style="text-align:left">15.2 G</td>
-</tr>
-<tr>
-<td style="text-align:left">ZLIB</td>
-<td style="text-align:left">不支持</td>
-<td style="text-align:left">不支持</td>
-<td style="text-align:left">10.1G</td>
-<td style="text-align:left">不支持</td>
-</tr>
-</tbody>
-</table>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li>《Hive编程指南》</li>
-<li><a href="http://blog.csdn.net/hereiskxm/article/details/42171325" target="_blank" rel="noopener">http://blog.csdn.net/hereiskxm/article/details/42171325</a></li>
-</ul>
+        <div class="article-info info-on-right">
+          
+          
 
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/03/11/Hive-hive使用压缩/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/03/22/pyenv管理python虚拟环境/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          pyenv管理python虚拟环境
-        
-      </div>
-    </a>
   
   
-    <a href="/2018/02/05/tableau连接hive/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">tableau连接hive</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/archives/2018/">&laquo; Prev</a><a class="page-number" href="/archives/2018/">1</a><span class="page-number current">2</span>
+    </nav>
   
 
 
@@ -397,8 +233,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
@@ -467,6 +303,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">原创</a>
               </li>
              
@@ -479,15 +319,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color3">hive,tableau</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">tableau</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">hive,tableau</a>
               </li>
              
               <li class="article-tag-list-item">
