@@ -8,18 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>hadoop高级-hadoop队列管理与资源隔离 | cleland的杂货铺</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="功能点 Hierarchical Queues(队列可分层) Capacity Guarantees Security(安全性) Elasticity Multi-tenancy Operability Resource-based Scheduling Queue Mapping based on User or Group: 可以基于用户或用户组分配队列； Priority Schedulin">
-<meta name="keywords" content="haoop">
+  <meta name="keywords" content="haoop">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hadoop高级-hadoop队列管理与资源隔离">
 <meta property="og:url" content="http://yoursite.com/2018/05/17/hadoop高级-hadoop队列管理与资源隔离/index.html">
 <meta property="og:site_name" content="cleland的杂货铺">
-<meta property="og:description" content="功能点 Hierarchical Queues(队列可分层) Capacity Guarantees Security(安全性) Elasticity Multi-tenancy Operability Resource-based Scheduling Queue Mapping based on User or Group: 可以基于用户或用户组分配队列； Priority Schedulin">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-17T12:13:32.166Z">
+<meta property="og:image" content="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/Hive-hive使用压缩/hive-hive使用压缩1.jpg">
+<meta property="og:updated_time" content="2018-05-17T12:16:12.562Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hadoop高级-hadoop队列管理与资源隔离">
-<meta name="twitter:description" content="功能点 Hierarchical Queues(队列可分层) Capacity Guarantees Security(安全性) Elasticity Multi-tenancy Operability Resource-based Scheduling Queue Mapping based on User or Group: 可以基于用户或用户组分配队列； Priority Schedulin">
+<meta name="twitter:image" content="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/Hive-hive使用压缩/hive-hive使用压缩1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="cleland的杂货铺" type="application/atom+xml">
   
@@ -185,7 +184,31 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="功能点"><a href="#功能点" class="headerlink" title="功能点"></a>功能点</h2><ul>
+        <p><img src="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/Hive-hive使用压缩/hive-hive使用压缩1.jpg" alt=""></p>
+<a id="more"></a>
+<!-- MarkdownTOC -->
+<ul>
+<li>功能点</li>
+<li>配置<ul>
+<li>配置ResouceManager使用CapacityScheduler</li>
+<li>设置队列</li>
+<li>队列属性<ul>
+<li>队列属性配置</li>
+<li>修改配置文件</li>
+</ul>
+</li>
+<li>设置任务的优先级</li>
+</ul>
+</li>
+<li>其他组件使用hadoop队列<ul>
+<li>Hive</li>
+</ul>
+</li>
+<li>补充</li>
+<li>参考</li>
+</ul>
+<!-- /MarkdownTOC -->
+<h2 id="功能点"><a href="#功能点" class="headerlink" title="功能点"></a>功能点</h2><ul>
 <li>Hierarchical Queues(队列可分层)</li>
 <li>Capacity Guarantees</li>
 <li>Security(安全性)</li>
@@ -462,6 +485,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hive</a>
               </li>
              
@@ -470,7 +497,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color3">hive,tableau</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -478,15 +505,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">hive,tableau</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">haoop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
