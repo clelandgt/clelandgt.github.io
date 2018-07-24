@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018/4 | cleland的杂货铺</title>
+  <title>大数据项目实战-Hbase+Kafka+Flume集成安装 | cleland的杂货铺</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="技术分享与生活随笔">
+  <meta name="description" content="hbase 下载安装hbase 启动hbase HBase常用命令 表操作命令     Kafka 下载安装kafka 启动测试kafka   Flume 下载安装 配置worker-1与worker-2 配置header   修改flume源码 修改flume源码 下载 修改源码     Flume+HBase+Kafka集成 下载用户查询日志 编写启动脚本 编写运行模型程序的shell脚本">
 <meta name="keywords" content="python, 大数据, 数据分析, 爬虫, 程序猿">
-<meta property="og:type" content="website">
-<meta property="og:title" content="cleland的杂货铺">
-<meta property="og:url" content="http://yoursite.com/archives/2018/04/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大数据项目实战-Hbase+Kafka+Flume集成安装">
+<meta property="og:url" content="http://yoursite.com/2018/07/17/大数据项目实战-Hbase-Kafka-Flume集成安装/index.html">
 <meta property="og:site_name" content="cleland的杂货铺">
-<meta property="og:description" content="技术分享与生活随笔">
+<meta property="og:description" content="hbase 下载安装hbase 启动hbase HBase常用命令 表操作命令     Kafka 下载安装kafka 启动测试kafka   Flume 下载安装 配置worker-1与worker-2 配置header   修改flume源码 修改flume源码 下载 修改源码     Flume+HBase+Kafka集成 下载用户查询日志 编写启动脚本 编写运行模型程序的shell脚本">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-07-22T16:48:41.326Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="cleland的杂货铺">
-<meta name="twitter:description" content="技术分享与生活随笔">
+<meta name="twitter:title" content="大数据项目实战-Hbase+Kafka+Flume集成安装">
+<meta name="twitter:description" content="hbase 下载安装hbase 启动hbase HBase常用命令 表操作命令     Kafka 下载安装kafka 启动测试kafka   Flume 下载安装 配置worker-1与worker-2 配置header   修改flume源码 修改flume源码 下载 修改源码     Flume+HBase+Kafka集成 下载用户查询日志 编写启动脚本 编写运行模型程序的shell脚本">
   
     <link rel="alternative" href="/atom.xml" title="cleland的杂货铺" type="application/atom+xml">
   
@@ -164,60 +165,307 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-大数据项目实战-Hbase-Kafka-Flume集成安装" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/05/docker的基本使用/" class="archive-article-date">
-  	<time datetime="2018-04-05T13:44:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-05</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/05/docker的基本使用/">docker的基本使用</a>
+    <h1 class="article-title" itemprop="name">
+      大数据项目实战-Hbase+Kafka+Flume集成安装
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        <a href="/2018/07/17/大数据项目实战-Hbase-Kafka-Flume集成安装/" class="archive-article-date">
+  	<time datetime="2018-07-17T14:59:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- MarkdownTOC -->
+<ul>
+<li>hbase<ul>
+<li>下载安装hbase</li>
+<li>启动hbase</li>
+<li>HBase常用命令<ul>
+<li>表操作命令</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Kafka<ul>
+<li>下载安装kafka</li>
+<li>启动测试kafka</li>
+</ul>
+</li>
+<li>Flume<ul>
+<li>下载安装<ul>
+<li>配置worker-1与worker-2</li>
+<li>配置header</li>
+</ul>
+</li>
+<li>修改flume源码</li>
+<li>修改flume源码<ul>
+<li>下载</li>
+<li>修改源码</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Flume+HBase+Kafka集成<ul>
+<li>下载用户查询日志</li>
+<li>编写启动脚本<ul>
+<li>编写运行模型程序的shell脚本</li>
+<li>编写flume集群服务启动的脚本</li>
+<li>编写kafka消费脚本</li>
+</ul>
+</li>
+<li>启动数据采集所有服务<ul>
+<li>启动HDFS服务</li>
+<li>启动Zookeeper服务</li>
+<li>启动Hbase服务</li>
+<li>启动Kafka服务</li>
+<li>启动Flume-1服务(worker-1)</li>
+<li>启动Flume-2服务(worker-2)</li>
+<li>启动Flume-3服务(header)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>问题<ul>
+<li>关闭hdfs的安全模式</li>
+</ul>
+</li>
+<li>引用</li>
+</ul>
+<!-- /MarkdownTOC -->
+<h2 id="hbase"><a href="#hbase" class="headerlink" title="hbase"></a>hbase</h2><h3 id="下载安装hbase"><a href="#下载安装hbase" class="headerlink" title="下载安装hbase"></a>下载安装hbase</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ wget http://archive.apache.org/dist/hbase/hbase-0.98.6/hbase-0.98.6-hadoop2-bin.tar.gz</span><br><span class="line">$ tar xvf hbase-0.98.6-hadoop2-bin.tar.gz -C /opt/modules/  # 解压到指定目录</span><br></pre></td></tr></table></figure>
+<p>编辑hbase-env.sh文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/opt/modules/jdk1.7.0_67</span><br><span class="line">export HBASE_MANAGES_ZK=false</span><br></pre></td></tr></table></figure>
+<p>编辑hbase-site.xml文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">  &lt;name&gt;hbase.rootdir&lt;/name&gt;</span><br><span class="line">  &lt;value&gt;hdfs://header:9000/hbase&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">  &lt;name&gt;hbase.cluster.distributed&lt;/name&gt;</span><br><span class="line">  &lt;value&gt;true&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">  &lt;name&gt;hbase.zookeeper.quorum&lt;/name&gt;</span><br><span class="line">  &lt;value&gt;header,worker-1,worker-2&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure>
+<p>编辑regionservers文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">header</span><br><span class="line">worker-1</span><br><span class="line">worker-2</span><br></pre></td></tr></table></figure>
+<p>新建backup-masters文件,添加需要用来作为备份的主机</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">worker-1</span><br></pre></td></tr></table></figure>
+<h3 id="启动hbase"><a href="#启动hbase" class="headerlink" title="启动hbase"></a>启动hbase</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ bin/hbase-daemon.sh start master  # header</span><br><span class="line">$ bin/hbase-daemon.sh start regionserver # header</span><br><span class="line">$ bin/hbase-daemon.sh start regionserver # worker-1</span><br><span class="line">$ bin/hbase-daemon.sh start regionserver # worker-2</span><br></pre></td></tr></table></figure>
+<p>输入<a href="http://header:60010/访问hbase管理界面" target="_blank" rel="noopener">http://header:60010/访问hbase管理界面</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hbase shell</span><br></pre></td></tr></table></figure>
+<h3 id="HBase常用命令"><a href="#HBase常用命令" class="headerlink" title="HBase常用命令"></a>HBase常用命令</h3><h4 id="表操作命令"><a href="#表操作命令" class="headerlink" title="表操作命令"></a>表操作命令</h4><ul>
+<li>create </li>
+<li>describe</li>
+<li>is_enabled</li>
+<li>drop </li>
+<li>enable</li>
+<li>is_disabled</li>
+<li>disable</li>
+<li>list</li>
+<li>count</li>
+<li>delete</li>
+<li>get</li>
+<li>put</li>
+<li>scan</li>
+<li>truncate</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">hbase&gt; help  # 查看命令</span><br><span class="line">hbase&gt; create &apos;test&apos;, &apos;info&apos;</span><br><span class="line">hbase&gt; put &apos;test&apos;,&apos;0001&apos;,&apos;info:userName&apos;,&apos;laocao&apos;</span><br><span class="line">hbase&gt; put &apos;test&apos;,&apos;0001&apos;,&apos;info:age&apos;,&apos;20&apos;</span><br><span class="line">hbase&gt; put &apos;test&apos;,&apos;0001&apos;,&apos;info:tel&apos;,&apos;13500000000&apos;</span><br><span class="line">hbase&gt; put &apos;test&apos;,&apos;0002&apos;,&apos;info:userName&apos;,&apos;小明&apos;</span><br><span class="line">hbase&gt; put &apos;test&apos;,&apos;0002&apos;,&apos;info:age&apos;,&apos;22&apos;</span><br><span class="line">hbase&gt; put &apos;test&apos;,&apos;0002&apos;,&apos;info:tel&apos;,&apos;13500000002&apos;</span><br><span class="line">hbase&gt; scan &apos;test&apos;</span><br><span class="line">hbase&gt; count &apos;test&apos;</span><br><span class="line">hbase&gt; disable &apos;test&apos;</span><br><span class="line">hbase&gt; drop &apos;test&apos;</span><br></pre></td></tr></table></figure>
+<h2 id="Kafka"><a href="#Kafka" class="headerlink" title="Kafka"></a>Kafka</h2><h3 id="下载安装kafka"><a href="#下载安装kafka" class="headerlink" title="下载安装kafka"></a>下载安装kafka</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ wget https://archive.apache.org/dist/kafka/0.9.0.0/kafka_2.11-0.9.0.0.tgz</span><br><span class="line">$ tar xvf kafka_2.11-0.9.0.0.tgz -C /opt/modules</span><br><span class="line">$ mkdir kafka-logs  # kafka主目录下创建文件夹</span><br></pre></td></tr></table></figure>
+<p>在header上编辑config/server.properties文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">broker.id=0</span><br><span class="line">host.name=header</span><br><span class="line">log.dirs=/opt/modules/kafka_2.11-0.8.2.1/kafka-logs</span><br><span class="line">zookeeper.connect=header:2181,worker-1:2181,worker-2:2181</span><br></pre></td></tr></table></figure>
+<p>分发服务到worker-1, worker-2，修改server.properties文件的broker.id分别为1，2和host.name与主机名对应。</p>
+<h3 id="启动测试kafka"><a href="#启动测试kafka" class="headerlink" title="启动测试kafka"></a>启动测试kafka</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ bin/kafka-server-start.sh config/server.properties  # 启动kafka服务</span><br><span class="line">$ bin/kafka-topics.sh --create --zookeeper header:2181,worker-1:2181,worker-2:2181 --replication-factor 1 --partitions 1 --topic protest  # 创建好topic</span><br></pre></td></tr></table></figure>
+<ul>
+<li>–replication-factor 为副本数</li>
+<li>paritions 分区数：后面性能调优可以使用</li>
+</ul>
+<p>查看创建的topics</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ bin/zkCli.sh  # 到zookeeper上去看创建的目录</span><br><span class="line">[zk: localhost:2181(CONNECTED) 4] ls /brokers/topics</span><br><span class="line">[protest]</span><br></pre></td></tr></table></figure>
+<p>启动生产者和消费者</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ bin/kafka-console-producer.sh --broker-list header:9092,worker-1:9092,worker-2:9092 --topic protest # 启动生产者</span><br><span class="line">$ bin/kafka-console-consumer.sh --zookeeper header:2181,worker-1:2181,worker-2:2181 --from-beginning  --topic protest  # 启动消费者</span><br></pre></td></tr></table></figure>
+<p>在生产者的命令行里输入，消费者实时显示消费。</p>
+<p>ps：可以启动三个kafka服务，可把在producer.properties文件中添加3个服务器metadata.broker.list=header:9092,worker-1:9092,worker-2:9092</p>
+<h2 id="Flume"><a href="#Flume" class="headerlink" title="Flume"></a>Flume</h2><h3 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ wget http://archive.apache.org/dist/flume/1.7.0/apache-flume-1.7.0-bin.tar.gz</span><br><span class="line">$ tar xvf apache-flume-1.7.0-bin.tar.gz -C /opt/modules/</span><br></pre></td></tr></table></figure>
+<p>如上，下载flume到worker-1。worker-2, header上。</p>
+<h4 id="配置worker-1与worker-2"><a href="#配置worker-1与worker-2" class="headerlink" title="配置worker-1与worker-2"></a>配置worker-1与worker-2</h4><p>编辑flume-env.sh添加环境变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/opt/modules/jdk1.7.0_67</span><br></pre></td></tr></table></figure>
+<p>编辑flume-conf.properties文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">agent.sources = s1</span><br><span class="line">agent.channels = c1</span><br><span class="line">agent.sinks = k1</span><br><span class="line"></span><br><span class="line">agent.sources.s1.type = exec</span><br><span class="line">agent.sources.s1.command = tail -F /opt/datas/weblog-flume.log</span><br><span class="line">agent.sources.s1.channels = c1</span><br><span class="line"></span><br><span class="line">agent.channels.c1.type = memory</span><br><span class="line">agent.channels.c1.capacity = 10000</span><br><span class="line">agent.channels.c1.transactionCapacity = 10000</span><br><span class="line">agent.channels.c1.keep-alive=5</span><br><span class="line"></span><br><span class="line">agent.sinks.k1.type = avro</span><br><span class="line">agent.sinks.k1.channel = c1</span><br><span class="line">agent.sinks.k1.hostname = header</span><br><span class="line">agent.sinks.k1.port = 55555</span><br></pre></td></tr></table></figure>
+<ul>
+<li>capacity: 容量大小</li>
+<li>transactionCapacity: 事务最大容量</li>
+<li>keep-alive: 数据调优，source插入到channel时等待(channel空间满了)，slink从channel读取数据为空时等待。</li>
+</ul>
+<h4 id="配置header"><a href="#配置header" class="headerlink" title="配置header"></a>配置header</h4><p>编辑flume-env.sh添加环境变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/opt/modules/jdk1.7.0_67</span><br><span class="line">export HADOOP_HOME=/opt/modules/hadoop-2.5.0</span><br><span class="line">export HBASE_HOME=/opt/modules/hbase-0.98.6-hadoop2</span><br></pre></td></tr></table></figure>
+<p>编辑flume-conf.properties文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">agent.sources = r1</span><br><span class="line">agent.channels = kafkaC hbaseC</span><br><span class="line">agent.sinks = kafkaSink  hbaseSink</span><br><span class="line"></span><br><span class="line">agent.sources.r1.type = avro</span><br><span class="line">agent.sources.r1.channels = hbaseC kafkaC</span><br><span class="line">agent.sources.r1.bind = header</span><br><span class="line">agent.sources.r1.port = 55555</span><br><span class="line">agent.sources.r1.threads = 5</span><br><span class="line"></span><br><span class="line">#************** flume + hbase *************</span><br><span class="line">agent.channels.hbaseC.type = memory</span><br><span class="line">agent.channels.hbaseC.capacity = 10000</span><br><span class="line">agent.channels.hbaseC.transactionCapacity = 10000</span><br><span class="line">agent.channels.hbaseC.keep-alive = 20</span><br><span class="line"></span><br><span class="line">agent.sinks.hbaseSink.type = asynchbase</span><br><span class="line">agent.sinks.hbaseSink.table = weblogs</span><br><span class="line">agent.sinks.hbaseSink.columnFamily = info</span><br><span class="line">agent.sinks.hbaseSink.serializer = org.apache.flume.sink.hbase.KfkAsyncHbaseEventSerializer</span><br><span class="line">agent.sinks.hbaseSink.channel = hbaseC</span><br><span class="line">agent.sinks.hbaseSink.serializer.payloadColumn=datetime,userid,searchname,retorder,cliorder,cliurl</span><br><span class="line"></span><br><span class="line">#************** flume + kafak **************</span><br><span class="line">agent.channels.kafkaC.type = memory</span><br><span class="line">agent.channels.kafkaC.capacity = 10000</span><br><span class="line">agent.channels.kafkaC.transactionCapacity = 10000</span><br><span class="line">agent.channels.kafkaC.keep-alive = 20</span><br><span class="line"></span><br><span class="line">agent.sinks.kafkaSink.channel = kafkaC</span><br><span class="line">agent.sinks.kafkaSink.type = org.apache.flume.sink.kafka.KafkaSink</span><br><span class="line">agent.sinks.kafkaSink.brokerList = header:9092,worker-1:9092,worker-2:9092</span><br><span class="line">agent.sinks.kafkaSink.topic = weblogs</span><br><span class="line">agent.sinks.kafkaSink.zookeeperConnect = header:2181,worker-1:2181,worker-2:2181</span><br><span class="line">agent.sinks.kafkaSink.requiredAcks = 1</span><br><span class="line">agent.sinks.kafkaSink.batchSize=1</span><br><span class="line">agent.sinks.kafkaSink.serializer.class = kafka.serializer.StringEncoder</span><br></pre></td></tr></table></figure>
+<p>相关参数的优化：</p>
+<ul>
+<li>agent1.sinks.kafkaSink.requiredAcks：消息的确认</li>
+<li>agent1.sinks.kafkaSink.batchSize: 给kafka推送批量的msg数</li>
+<li>agent1.sinks.kafkaSink.serializer.class: 解析类</li>
+</ul>
+<h3 id="修改flume源码"><a href="#修改flume源码" class="headerlink" title="修改flume源码"></a>修改flume源码</h3><h3 id="修改flume源码-1"><a href="#修改flume源码-1" class="headerlink" title="修改flume源码"></a>修改flume源码</h3><h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget http://archive.apache.org/dist/flume/1.7.0/apache-flume-1.7.0-src.tar.gz</span><br></pre></td></tr></table></figure>
+<h4 id="修改源码"><a href="#修改源码" class="headerlink" title="修改源码"></a>修改源码</h4><p>SimpleRowKeyGenerator类新增函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public static byte[] getKfkRowKey(String userid, String datetime) throws UnsupportedEncodingException &#123;</span><br><span class="line">return (userid + datetime + String.valueOf(System.currentTimeMillis()).getBytes(&quot;UTF8&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>新建KfkAsyncHbaseEventSerializer类(拷贝自SimpleAsyncHbaseEventSerializer)，并修改函数getActions</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;PutRequest&gt; <span class="title">getActions</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    List&lt;PutRequest&gt; actions = <span class="keyword">new</span> ArrayList&lt;PutRequest&gt;();</span><br><span class="line">    <span class="keyword">if</span> (payloadColumn != <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">byte</span>[] rowKey;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            String[] columns = <span class="keyword">new</span> String(<span class="keyword">this</span>.payloadColumn).split(<span class="string">","</span>);</span><br><span class="line">            String[] values = <span class="keyword">new</span> String(<span class="keyword">this</span>.payload).split(<span class="string">","</span>);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;columns.length; i++)&#123;</span><br><span class="line">                <span class="keyword">byte</span>[] colColumn = columns[i].getBytes();</span><br><span class="line">                <span class="keyword">byte</span>[] colValue = values[i].getBytes();</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span>(columns.length != values.length) <span class="keyword">break</span>;</span><br><span class="line">                String datetime = String.valueOf(values[<span class="number">0</span>]);</span><br><span class="line">                String userid = String.valueOf(values[<span class="number">1</span>]);</span><br><span class="line">                rowKey = SimpleRowKeyGenerator.getKfkRowKey(userid, datetime);</span><br><span class="line">                PutRequest putRequest = <span class="keyword">new</span> PutRequest(table, rowKey, cf, colColumn, colValue);</span><br><span class="line">                actions.add(putRequest);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> FlumeException(<span class="string">"Could not get row key!"</span>, e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> actions;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>AsyncHBaseSink类中的修改SimpleAsyncHbaseEventSerializer为KfkAsyncHbaseEventSerializer</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">eventSerializerType =</span><br><span class="line">          &quot;org.apache.flume.sink.hbase.KfkAsyncHbaseEventSerializer&quot;;</span><br></pre></td></tr></table></figure>
+<p>编译打包jar包,上传到header的flume的lib目录。</p>
+<h2 id="Flume-HBase-Kafka集成"><a href="#Flume-HBase-Kafka集成" class="headerlink" title="Flume+HBase+Kafka集成"></a>Flume+HBase+Kafka集成</h2><h3 id="下载用户查询日志"><a href="#下载用户查询日志" class="headerlink" title="下载用户查询日志"></a>下载用户查询日志</h3><p>访问 <a href="http://www.sogou.com/labs/resource/q.php" target="_blank" rel="noopener">搜狗实验室用户查询数据</a>, 先选用精简版</p>
+<p>在worker-1和worker-2上下载部署查询日志。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ wget http://download.labs.sogou.com/dl/sogoulabdown/SogouQ/SogouQ.mini.tar.gz</span><br><span class="line">$ tar -xvf SogouQ.mini.tar.gz -C /opt/datas</span><br><span class="line">$ cat SogouQ.sample | tr &quot;\t&quot; &quot;,&quot; &gt; weblog2.log  # 将文件中的tab更换成逗号</span><br><span class="line">$ cat weblog2.log | tr &quot; &quot; &quot;,&quot; &gt; weblogs.log</span><br></pre></td></tr></table></figure>
+<h3 id="编写启动脚本"><a href="#编写启动脚本" class="headerlink" title="编写启动脚本"></a>编写启动脚本</h3><h4 id="编写运行模型程序的shell脚本"><a href="#编写运行模型程序的shell脚本" class="headerlink" title="编写运行模型程序的shell脚本"></a>编写运行模型程序的shell脚本</h4><p>worker-1和worker-2 /opt/datas/weblog-flume.sh</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#/bin/bash</span><br><span class="line">echo &quot;start log ....&quot;</span><br><span class="line">java -jar /opt/jar/weblogs.jar  /opt/datas/weblogs.log weblog-flume.log</span><br></pre></td></tr></table></figure>
+<h4 id="编写flume集群服务启动的脚本"><a href="#编写flume集群服务启动的脚本" class="headerlink" title="编写flume集群服务启动的脚本"></a>编写flume集群服务启动的脚本</h4><p>flume主目录下创建文件flume-kfk-start.sh  [worker-1]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#/bin/bash</span><br><span class="line">echo &quot;flume-1 start .....&quot;</span><br><span class="line">bin/flume-ng agent --conf conf -f conf/flume-conf.properties -n agent -Dflume.root.logger=DEBUG,console</span><br></pre></td></tr></table></figure>
+<p>flume主目录下创建文件flume-kfk-start.sh  [worker-2]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#/bin/bash</span><br><span class="line">echo &quot;flume-2 start .....&quot;</span><br><span class="line">bin/flume-ng agent --conf conf -f conf/flume-conf.properties -n agent -Dflume.root.logger=INFO,console</span><br></pre></td></tr></table></figure>
+<p>flume主目录下创建文件flume-kfk-start.sh  [header]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#/bin/bash</span><br><span class="line">echo &quot;flume-3 start .....&quot;</span><br><span class="line">bin/flume-ng agent --conf conf -f conf/flume-conf.properties -n agent -Dflume.root.logger=INFO,console</span><br></pre></td></tr></table></figure>
+<h4 id="编写kafka消费脚本"><a href="#编写kafka消费脚本" class="headerlink" title="编写kafka消费脚本"></a>编写kafka消费脚本</h4><p>在header,worker-1,worker-2的kafka主目录下都存放kfk-test-consumer.sh文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#/bin/bash</span><br><span class="line">echo &quot;kfk-kafka-comsumer.sh start .....&quot;</span><br><span class="line">bin/kafka-console-consumer.sh -zookeeper header:2181,worker-1:2181,worker-2:2181 -from-beginning -topic weblogs</span><br></pre></td></tr></table></figure>
+<h3 id="启动数据采集所有服务"><a href="#启动数据采集所有服务" class="headerlink" title="启动数据采集所有服务"></a>启动数据采集所有服务</h3><h4 id="启动HDFS服务"><a href="#启动HDFS服务" class="headerlink" title="启动HDFS服务"></a>启动HDFS服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sbin/hadoop-daemon.sh start namenode  # header</span><br><span class="line">$ sbin/hadoop-daemon.sh start datanode  # header</span><br><span class="line">$ sbin/hadoop-daemon.sh start datanode  # worker-1</span><br><span class="line">$ sbin/hadoop-daemon.sh start datanode  # worker-2</span><br></pre></td></tr></table></figure>
+<h4 id="启动Zookeeper服务"><a href="#启动Zookeeper服务" class="headerlink" title="启动Zookeeper服务"></a>启动Zookeeper服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ bin/zkServer.sh start  # header</span><br><span class="line">$ bin/zkServer.sh start  # worker-1</span><br><span class="line">$ bin/zkServer.sh start  # worker-2</span><br><span class="line">$ bin/zkServer.sh status  # 查看状态</span><br></pre></td></tr></table></figure>
+<h4 id="启动Hbase服务"><a href="#启动Hbase服务" class="headerlink" title="启动Hbase服务"></a>启动Hbase服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ bin/hbase-daemon.sh start master  # header</span><br><span class="line">$ bin/hbase-daemon.sh start regionserver # header</span><br><span class="line">$ bin/hbase-daemon.sh start regionserver # worker-1</span><br><span class="line">$ bin/hbase-daemon.sh start regionserver # worker-2</span><br></pre></td></tr></table></figure>
+<p>创建业务表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hbase &gt; create &apos;weblogs&apos;, &apos;info&apos;</span><br></pre></td></tr></table></figure>
+<h4 id="启动Kafka服务"><a href="#启动Kafka服务" class="headerlink" title="启动Kafka服务"></a>启动Kafka服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ bin/kafka-server-start.sh config/server.properties  # header</span><br><span class="line">$ bin/kafka-server-start.sh config/server.properties  # worker-1</span><br><span class="line">$ bin/kafka-server-start.sh config/server.properties  # worker-2</span><br><span class="line">$ bin/zkCli.sh  # 进入zookeeper客户端</span><br></pre></td></tr></table></figure>
+<p>删除之前的topic</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">zk&gt; ls /brokers/topics</span><br><span class="line">[protest]</span><br><span class="line">zk&gt; rmr /brokers/topics/protest</span><br></pre></td></tr></table></figure>
+<p>创建新的topic</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/kafka-topics.sh --create --zookeeper header:2181,worker-1:2181,worker-2:2181 --replication-factor 3 --partitions 1 --topic weblogs</span><br></pre></td></tr></table></figure>
+<h4 id="启动Flume-1服务-worker-1，worker-2"><a href="#启动Flume-1服务-worker-1，worker-2" class="headerlink" title="启动Flume-1服务(worker-1，worker-2)"></a>启动Flume-1服务(worker-1，worker-2)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ ./flume-kfk-start.sh  # worker-1的flume主目录</span><br><span class="line">$ ./weblog-flume.sh  # worker-1的/opt/datas/中写入实时日志</span><br><span class="line">$ ./flume-kfk-start.sh  # worker-2的flume主目录</span><br><span class="line">$ ./weblog-flume.sh  # worker-2的/opt/datas/中写入实时日志</span><br></pre></td></tr></table></figure>
+<h4 id="启动Flume-3服务-header"><a href="#启动Flume-3服务-header" class="headerlink" title="启动Flume-3服务(header)"></a>启动Flume-3服务(header)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ./flume-kfk-start.sh  # header的flume主目录</span><br><span class="line">$ ./kfk-test-consumer.sh  # worker-1里的kafka消费程序</span><br></pre></td></tr></table></figure>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><h3 id="关闭hdfs的安全模式"><a href="#关闭hdfs的安全模式" class="headerlink" title="关闭hdfs的安全模式"></a>关闭hdfs的安全模式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/hadoop dfsadmin -safemode leave</span><br></pre></td></tr></table></figure>
+<h3 id="flume-kafka报错"><a href="#flume-kafka报错" class="headerlink" title="flume+kafka报错"></a>flume+kafka报错</h3><p>问题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">2018-07-22 22:20:33,733 (kafka-producer-network-thread | producer-1) [ERROR - org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:130)] Uncaught error in kafka producer I/O thread:</span><br><span class="line">org.apache.kafka.common.protocol.types.SchemaException: Error reading field &apos;throttle_time_ms&apos;: java.nio.BufferUnderflowException</span><br><span class="line">	at org.apache.kafka.common.protocol.types.Schema.read(Schema.java:71)</span><br><span class="line">	at org.apache.kafka.clients.NetworkClient.handleCompletedReceives(NetworkClient.java:439)</span><br><span class="line">	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:265)</span><br><span class="line">	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:216)</span><br><span class="line">	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:128)</span><br><span class="line">	at java.lang.Thread.run(Thread.java:745)</span><br></pre></td></tr></table></figure>
+<p>解决方案：</p>
+<p>升级kafka版本为0.9.x</p>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><ul>
+<li><a href="https://blog.csdn.net/wang_zhenwei/article/details/48707981" target="_blank" rel="noopener">Hadoop错误9_解决Hadoop的Safe mode is ON问题</a></li>
+<li><a href="https://stackoverflow.com/questions/43612344/kafka-flume-oracle-database-error-reading-field-throttle-time-ms" target="_blank" rel="noopener">Kafka - Flume - Oracle Database - Error reading field ‘throttle_time_ms’</a></li>
+</ul>
 
-          
+      
 
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/17/大数据项目实战-Hbase-Kafka-Flume集成安装/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2018/07/23/大数据实战项目-Hive安装与使用/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          大数据实战项目-Hive安装与使用
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2018/07/06/大数据项目实战-hadoop高可用ha架构/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">大数据项目实战-hadoop高可用ha架构</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -240,8 +488,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,

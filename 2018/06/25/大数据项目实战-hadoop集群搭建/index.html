@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018/4 | cleland的杂货铺</title>
+  <title>大数据项目实战-hadoop集群搭建 | cleland的杂货铺</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="技术分享与生活随笔">
+  <meta name="description" content="linux初始配置 添加hadoop用户 修改hostname与地址映射 免密登录设置 安装java   Hadoop部署 下载hadoop安装包并解压 配置hdfs 配置java环境变量 配置core-site.xml 配置hdfs-site.xml 配置slaves 启动服务   配置yarn 启动服务 header worker     其他 阿里云安全组 本地host   问题  无法">
 <meta name="keywords" content="python, 大数据, 数据分析, 爬虫, 程序猿">
-<meta property="og:type" content="website">
-<meta property="og:title" content="cleland的杂货铺">
-<meta property="og:url" content="http://yoursite.com/archives/2018/04/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大数据项目实战-hadoop集群搭建">
+<meta property="og:url" content="http://yoursite.com/2018/06/25/大数据项目实战-hadoop集群搭建/index.html">
 <meta property="og:site_name" content="cleland的杂货铺">
-<meta property="og:description" content="技术分享与生活随笔">
+<meta property="og:description" content="linux初始配置 添加hadoop用户 修改hostname与地址映射 免密登录设置 安装java   Hadoop部署 下载hadoop安装包并解压 配置hdfs 配置java环境变量 配置core-site.xml 配置hdfs-site.xml 配置slaves 启动服务   配置yarn 启动服务 header worker     其他 阿里云安全组 本地host   问题  无法">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-07-06T15:11:14.703Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="cleland的杂货铺">
-<meta name="twitter:description" content="技术分享与生活随笔">
+<meta name="twitter:title" content="大数据项目实战-hadoop集群搭建">
+<meta name="twitter:description" content="linux初始配置 添加hadoop用户 修改hostname与地址映射 免密登录设置 安装java   Hadoop部署 下载hadoop安装包并解压 配置hdfs 配置java环境变量 配置core-site.xml 配置hdfs-site.xml 配置slaves 启动服务   配置yarn 启动服务 header worker     其他 阿里云安全组 本地host   问题  无法">
   
     <link rel="alternative" href="/atom.xml" title="cleland的杂货铺" type="application/atom+xml">
   
@@ -164,60 +165,292 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-大数据项目实战-hadoop集群搭建" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/05/docker的基本使用/" class="archive-article-date">
-  	<time datetime="2018-04-05T13:44:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-05</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/05/docker的基本使用/">docker的基本使用</a>
+    <h1 class="article-title" itemprop="name">
+      大数据项目实战-hadoop集群搭建
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        <a href="/2018/06/25/大数据项目实战-hadoop集群搭建/" class="archive-article-date">
+  	<time datetime="2018-06-24T16:15:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- MarkdownTOC -->
+<ul>
+<li>linux初始配置<ul>
+<li>添加hadoop用户</li>
+<li>修改hostname与地址映射</li>
+<li>免密登录设置</li>
+<li>安装java</li>
+</ul>
+</li>
+<li>Hadoop部署<ul>
+<li>下载hadoop安装包并解压</li>
+<li>配置hdfs<ul>
+<li>配置java环境变量</li>
+<li>配置core-site.xml</li>
+<li>配置hdfs-site.xml</li>
+<li>配置slaves</li>
+<li>启动服务</li>
+</ul>
+</li>
+<li>配置yarn</li>
+<li>启动服务<ul>
+<li>header</li>
+<li>worker</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>其他<ul>
+<li>阿里云安全组</li>
+<li>本地host</li>
+</ul>
+</li>
+<li>问题<ul>
+<li><ol>
+<li>无法启动datanode,报错”ulimit -a for user root”</li>
+</ol>
+</li>
+<li><ol>
+<li>hdfs 显示本地目录问题</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<!-- /MarkdownTOC -->
+<p>主机清单</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">角色</th>
+<th style="text-align:left">外网ip</th>
+<th style="text-align:left">内网ip</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">header</td>
+<td style="text-align:left">120.77.44.77</td>
+<td style="text-align:left">172.18.179.240</td>
+</tr>
+<tr>
+<td style="text-align:left">worker-1</td>
+<td style="text-align:left">39.108.184.123</td>
+<td style="text-align:left">172.18.179.241</td>
+</tr>
+<tr>
+<td style="text-align:left">worker-2</td>
+<td style="text-align:left">39.108.1.16</td>
+<td style="text-align:left">172.18.179.242</td>
+</tr>
+</tbody>
+</table>
+<p>账户信息都是：</p>
+<ul>
+<li>root: M2J*b7AKjkaZi]Hw</li>
+<li>hadoop: ganZHEyu</li>
+</ul>
+<h2 id="linux初始配置"><a href="#linux初始配置" class="headerlink" title="linux初始配置"></a>linux初始配置</h2><h3 id="添加hadoop用户"><a href="#添加hadoop用户" class="headerlink" title="添加hadoop用户"></a>添加hadoop用户</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ adduser hadoop</span><br><span class="line">$ passwd hadoop  # 密码为ganZHEyu</span><br></pre></td></tr></table></figure>
+<p>声明可以使用hadoop用户可以使用任何命令且不使用密码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ su -   # 输入密码切换为root切换</span><br><span class="line">$ vim /etc/sudoers  # 编辑该文件，</span><br><span class="line">1. 在“root ALL=(ALL)ALL&quot;行下面添加&quot;xxx ALL=(ALL)ALL&quot;，其中xxx是你要添加的用户名hadoop。因为该文件是只读的，所以输入&quot;:wq!&quot;退出。</span><br><span class="line">2. 添加“hadoop  ALL=(root)NOPASSWD:ALL”</span><br></pre></td></tr></table></figure>
+<p>TODO: 待了解sudoers</p>
+<h3 id="修改hostname与地址映射"><a href="#修改hostname与地址映射" class="headerlink" title="修改hostname与地址映射"></a>修改hostname与地址映射</h3><p>依次修改host名: header, worker-1, worker-2。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hostnamectl set-hostname header</span><br></pre></td></tr></table></figure>
+<p>添加地址映射</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ vim /etc/hosts  # 添加以下内容</span><br><span class="line">172.18.179.240  header</span><br><span class="line">172.18.179.241  worker-1</span><br><span class="line">172.18.179.242  worker-2</span><br><span class="line"></span><br><span class="line">$ reboot # 重启生效</span><br></pre></td></tr></table></figure>
+<h3 id="免密登录设置"><a href="#免密登录设置" class="headerlink" title="免密登录设置"></a>免密登录设置</h3><p>配置header免密登录worker-1, worker-2</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen  # 生成秘钥</span><br><span class="line">$ ssh-copy-id hadoop@worker-1  # 输入密码，推送公钥到worker-1</span><br><span class="line">$ ssh-copy-id hadoop@worker-2  # 输入密码，推送公钥到worker-2</span><br></pre></td></tr></table></figure>
+<h3 id="安装java"><a href="#安装java" class="headerlink" title="安装java"></a>安装java</h3><p>在/opt目录下创建：softwares, tools, modules, datas四个目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd /opt/software</span><br><span class="line">$ tar -xzf jdk-7u67-linux-x64.tar.gz /opt/modules/ # 安装java</span><br></pre></td></tr></table></figure>
+<p>添加java环境变量，编辑文件/etc/profile， 末尾添加以下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># JAVA_HOME</span><br><span class="line">export JAVA_HOME=/opt/modules/jdk1.7.0_67</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin</span><br></pre></td></tr></table></figure>
+<h2 id="Hadoop部署"><a href="#Hadoop部署" class="headerlink" title="Hadoop部署"></a>Hadoop部署</h2><p>选择2.5以上hadoop版本,下载的地方：</p>
+<ul>
+<li><a href="http://archive.apache.org/dist/" target="_blank" rel="noopener">http://archive.apache.org/dist/</a></li>
+<li><a href="http://archive.cloudera.com/cdh5/" target="_blank" rel="noopener">http://archive.cloudera.com/cdh5/</a></li>
+</ul>
+<h3 id="下载hadoop安装包并解压"><a href="#下载hadoop安装包并解压" class="headerlink" title="下载hadoop安装包并解压"></a>下载hadoop安装包并解压</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd /opt/softwares/</span><br><span class="line">$ tar -xzf hadoop-2.5.0.tar.gz -C /opt/modules/</span><br></pre></td></tr></table></figure>
+<p>添加hadoop主目录到环境变量，编辑/etc/profile文件，添加以下两行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># HADOOP_HOME</span><br><span class="line">export HADOOP_HOME=/opt/modules/hadoop-2.5.0</span><br><span class="line">export PATH=$PATH:$HADOOP_HOME/bin</span><br></pre></td></tr></table></figure>
+<p>并重新加载</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ source /etc/profile</span><br></pre></td></tr></table></figure>
+<h3 id="配置hdfs"><a href="#配置hdfs" class="headerlink" title="配置hdfs"></a>配置hdfs</h3><h4 id="配置java环境变量"><a href="#配置java环境变量" class="headerlink" title="配置java环境变量"></a>配置java环境变量</h4><p>在hadoop-env.sh,mapred-enc.sh,yarn-env.sh3个文件中添加java环境变量：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/opt/modules/jdk1.7.0_67</span><br></pre></td></tr></table></figure>
+<h4 id="配置hdfs-site-xml"><a href="#配置hdfs-site-xml" class="headerlink" title="配置hdfs-site.xml"></a>配置hdfs-site.xml</h4><p>设置dfs.replication=2，副本数为2，默认为3.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;dfs.replication&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;2&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line"></span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;dfs.permissions.enabled&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;false&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="配置core-site-xml"><a href="#配置core-site-xml" class="headerlink" title="配置core-site.xml"></a>配置core-site.xml</h4><ul>
+<li>配置hdfs网络服务为hdfs://header:9000；</li>
+<li>配置用户为hadoop；</li>
+<li>配置日志目录为/opt/modules/hadoop-2.5.0/data/tmp, 修改了该地方，hdfs需要重新初始化。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;fs.defaultFS&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;hdfs://header:9000&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line"></span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;hadoop.http.staticuser.user&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;hadoop&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line"></span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;hadoop.tmp.dir&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;/opt/modules/hadoop-2.5.0/data/tmp&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="配置slaves"><a href="#配置slaves" class="headerlink" title="配置slaves"></a>配置slaves</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">header</span><br><span class="line">worker-1</span><br><span class="line">worker-2</span><br></pre></td></tr></table></figure>
+<h4 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ bin/hdfs namenode -format # 格式化文件系统hdfs</span><br><span class="line">$ sbin/hadoop-daemon.sh start namenode  # 启动namenode</span><br><span class="line">$ sbin/hadoop-daemon.sh start datanode  # 启动datanode, header上也规划了一个datanode</span><br><span class="line">$ jps # 查看服务是否都正常打开</span><br><span class="line">4405 Jps</span><br><span class="line">3253 DataNode</span><br><span class="line">2707 NameNode</span><br></pre></td></tr></table></figure>
+<p>输入 <a href="http://header:50070/访问hdfs管理页面。拷贝配置好的hadoop到worker-1" target="_blank" rel="noopener">http://header:50070/访问hdfs管理页面。拷贝配置好的hadoop到worker-1</a>, worker-2。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ scp -r hadoop-2.5.0 hadoop@worker-1:/opt/modules</span><br><span class="line">$ scp -r hadoop-2.5.0 hadoop@worker-2:/opt/modules</span><br></pre></td></tr></table></figure>
+<p>启动worker-1, worker-2上的datanode</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sbin/hadoop-daemon.sh start datanode</span><br></pre></td></tr></table></figure>
+<h3 id="配置yarn"><a href="#配置yarn" class="headerlink" title="配置yarn"></a>配置yarn</h3><p>配置yarn,编辑文件yarn-site.xml添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;mapreduce_shuffle&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line"></span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;yarn.resourcemanager.hostname&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;header&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line"></span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;yarn.resourcemanager.webapp.address&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;header:8088&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line"></span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;yarn.log-aggregation-enable&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;true&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line"></span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;yarn.log-aggregation.retain-seconds&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;-1&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line"></span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+<p>配置mapreduce,编辑文件mapred-site.xml添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;mapreduce.framework.name&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;yarn&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line"></span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;mapreduce.jobhistory.address&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;header:10020&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line"></span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;mapreduce.jobhistory.webapp.address&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;header:19888&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line"></span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+<p>拷贝配置好的hadoop到worker-1, worker-2.然后启动相应服务看yarn和mapreduce是否配置正常</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ sbin/yarn-daemon.sh start nodemanager</span><br><span class="line">$ sbin/yarn-daemon.sh start resourcemanager</span><br><span class="line">$ sbin/mr-jobhistory-daemon.sh start historyserver</span><br><span class="line">$ jps  # 查看服务是否都正常打开</span><br><span class="line">3706 JobHistoryServer</span><br><span class="line">4405 Jps</span><br><span class="line">3253 DataNode</span><br><span class="line">4012 NodeManager</span><br><span class="line">4142 ResourceManager</span><br><span class="line">2707 NameNode</span><br></pre></td></tr></table></figure>
+<p>输入 <a href="http://header:8088/访问yarn管理页面，添加worker-1" target="_blank" rel="noopener">http://header:8088/访问yarn管理页面，添加worker-1</a>, worker-2到集群yarn,分别在worker-1, worker-2下执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sbin/yarn-daemon.sh start nodemanager</span><br></pre></td></tr></table></figure>
+<h3 id="测试hdfs和yarn是否安装正常"><a href="#测试hdfs和yarn是否安装正常" class="headerlink" title="测试hdfs和yarn是否安装正常"></a>测试hdfs和yarn是否安装正常</h3><p>编辑文本test</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hadoop  spark</span><br><span class="line">yarn  spark hadoop hadoop</span><br><span class="line">hive hive spark hadoop</span><br></pre></td></tr></table></figure>
+<p>上传到hdfs, 并执行hadoop官方例子：world_count</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ hadoop fs -put -p test /user/hadoop/wc.input</span><br><span class="line">$ yarn jar /opt/modules/hadoop-2.5.0/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.5.0.jar wordcount /user/hadoop/wc.input/   /user/hadoop/wc.output</span><br><span class="line">$ hadoop fs -text  /user/hadoop/wc.output/part-r-00000 # 查看运行后的结果</span><br><span class="line">hadoop	3</span><br><span class="line">hive	3</span><br><span class="line">java	2</span><br><span class="line">spark	3</span><br></pre></td></tr></table></figure>
+<h3 id="机器时间同步"><a href="#机器时间同步" class="headerlink" title="机器时间同步"></a>机器时间同步</h3><p>因为使用的是阿里云的ECS，里面已设置了时间同步。<br>TODO: 需补充机器时间同步的设置</p>
+<h2 id="ZooKeeper"><a href="#ZooKeeper" class="headerlink" title="ZooKeeper"></a>ZooKeeper</h2><p>解压到安装目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar zxf zookeeper-3.4.5.tar.gz -C /opt/modules/</span><br></pre></td></tr></table></figure>
+<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cp $&#123;ZOOKEEPER_HOME&#125;/conf/zoo_sample.cfg $&#123;ZOOKEEPER_HOME&#125;/conf/zoo.cfg  # 拷贝一个zoo.cfg文件</span><br><span class="line">$ mkdir $&#123;ZOOKEEPER_HOME&#125;/zkData   # $&#123;ZOOKEEPER_HOME&#125;=/opt/modules/zookeeper-3.4.5， 创建一个存放数据的文件夹</span><br></pre></td></tr></table></figure>
+<p>编辑配置文件zoo.cfg</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dataDir=/opt/modules/zookeeper-3.4.5/zkData</span><br><span class="line"></span><br><span class="line">server.1=header:28888:38888</span><br><span class="line">server.2=worker-1:28888:38888</span><br><span class="line">server.3=worker-2:28888:38888</span><br></pre></td></tr></table></figure>
+<p>还需要创建唯一标识，如server.1中的1,需要在dataDir目录下创建myid文件，内容编辑为1。拷贝安装配置好的ZooKeeper到worker-1, worker-2. 分别修改唯一标识myid为2，3</p>
+<p><strong>注意</strong>：安装的zookeeper服务数= 2n+1。 n为可损坏的机器数，这里为1.</p>
+<p>其中header,worker-1,worker-2上的zookeeper服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ bin/zkServer.sh start  # 启动服务</span><br><span class="line">$   # 查看进程</span><br></pre></td></tr></table></figure></p>
+<p>##启动服务</p>
+<h3 id="header"><a href="#header" class="headerlink" title="header"></a>header</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ bin/hdfs namenode -format</span><br><span class="line">$ sbin/hadoop-daemon.sh start namenode</span><br><span class="line">$ sbin/hadoop-daemon.sh start datanode</span><br><span class="line">$ sbin/yarn-daemon.sh start nodemanager</span><br><span class="line">$ sbin/yarn-daemon.sh start resourcemanager</span><br><span class="line">$ sbin/mr-jobhistory-daemon.sh start historyserver</span><br><span class="line">$ bin/zkServer.sh start</span><br></pre></td></tr></table></figure>
+<h3 id="worker"><a href="#worker" class="headerlink" title="worker"></a>worker</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sbin/hadoop-daemon.sh start datanode</span><br><span class="line">$ sbin/yarn-daemon.sh start nodemanager</span><br><span class="line">$ bin/zkServer.sh start</span><br></pre></td></tr></table></figure>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="阿里云安全组"><a href="#阿里云安全组" class="headerlink" title="阿里云安全组"></a>阿里云安全组</h3><p>使用阿里云时，需要注意使用安全组，配置上需要开放的端口。</p>
+<h3 id="本地host"><a href="#本地host" class="headerlink" title="本地host"></a>本地host</h3><p>本地机器需添加以下host方便访问服务器：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">120.77.44.77    header</span><br><span class="line">39.108.184.123  worker-1</span><br><span class="line">39.108.1.16     worker-2</span><br></pre></td></tr></table></figure>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><h3 id="1-无法启动datanode-报错”ulimit-a-for-user-root”"><a href="#1-无法启动datanode-报错”ulimit-a-for-user-root”" class="headerlink" title="1. 无法启动datanode,报错”ulimit -a for user root”"></a>1. 无法启动datanode,报错”ulimit -a for user root”</h3><p>datanamenode运行时打开文件数，达到系统最大限制</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ ulimit -n   # 查看当前最大限制</span><br><span class="line">65536</span><br><span class="line">$ vim /etc/security/limits.conf  # 修改nofile限制</span><br></pre></td></tr></table></figure>
+<p>加上：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">* soft nodefile 102400</span><br><span class="line">* hard nodefile 409600</span><br></pre></td></tr></table></figure>
+<p>还不能解决，就清除hadoop.tmp.dir对应目录下对应的文件。</p>
 
-          
+      
 
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/06/25/大数据项目实战-hadoop集群搭建/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2018/07/06/大数据项目实战-hadoop高可用ha架构/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          大数据项目实战-hadoop高可用ha架构
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2018/05/17/hadoop高级-hadoop队列管理与资源隔离/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">hadoop高级-hadoop队列管理与资源隔离</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -240,8 +473,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
