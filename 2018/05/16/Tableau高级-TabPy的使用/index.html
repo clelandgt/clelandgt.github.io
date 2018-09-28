@@ -17,7 +17,7 @@
 <meta property="og:description" content="Tableau桌面版10.1以上的版本支持使用TabPy。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/Tableau-连接hive/tableau连接hive1.jpg">
-<meta property="og:updated_time" content="2018-05-16T16:07:51.820Z">
+<meta property="og:updated_time" content="2018-09-28T09:54:42.137Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tableau 高级 | TabPy的使用">
 <meta name="twitter:description" content="Tableau桌面版10.1以上的版本支持使用TabPy。">
@@ -224,7 +224,7 @@ var _hmt = _hmt || [];
 <h3 id="TableauServer"><a href="#TableauServer" class="headerlink" title="TableauServer"></a>TableauServer</h3><p>发布到TableauServer，需要在服务器端配置连接Tabpy.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ tabadmin stop</span><br><span class="line">$ tabadmin set vizqlserver.allow_insecure_scripts true</span><br><span class="line">$ tabadmin set vizqlserver.extsvc.host &lt;ip address or host name of the machine hosting TabPy&gt;</span><br><span class="line">$ tabadmin set vizqlserver.extsvc.port &lt;port for TabPy&gt;</span><br><span class="line">$ tabadmin configure</span><br><span class="line">$ tabadmin start</span><br></pre></td></tr></table></figure>
 <h3 id="TabPy的使用-1"><a href="#TabPy的使用-1" class="headerlink" title="TabPy的使用"></a>TabPy的使用</h3><p>当前Tableau主要通过4个不同返回类型的函数来调用TabPy来满足使用场景: <code>SCRIPT_INT</code>, <code>SCRIPT_REAL</code>, <code>SCRIPT_STR</code>, <code>SCRIPT_BOOL</code>。这四个函数内容大体都为：Python(或R)脚本字符串 + 参数1[参数2，参数n] 且都需要return。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 计算字段1</span><br><span class="line">SCRIPT_STR(&quot;</span><br><span class="line">import requests</span><br><span class="line">return [requests.get(&apos;http://boss.huizhaofang.com/api/if/calc_breach_refund/?contract_no=&#123;&#125;&apos;.format(item)).text for item in _arg1]&quot;, ATTR([contract_no]))</span><br><span class="line"></span><br><span class="line"># 计算字段2</span><br><span class="line">SCRIPT_REAL(&quot;</span><br><span class="line">import json</span><br><span class="line">return [json.loads(item)[&apos;result&apos;][&apos;refund_price&apos;][&apos;breach_price&apos;]/100.00 for item in _arg1]&quot;, [response])</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 计算字段1</span><br><span class="line">SCRIPT_STR(&quot;</span><br><span class="line">import requests</span><br><span class="line">return [requests.get(&apos;&#123;url&#125;/?contract_no=&#123;&#125;&apos;.format(item)).text for item in _arg1]&quot;, ATTR([contract_no]))</span><br><span class="line"></span><br><span class="line"># 计算字段2</span><br><span class="line">SCRIPT_REAL(&quot;</span><br><span class="line">import json</span><br><span class="line">return [json.loads(item)[&apos;result&apos;][&apos;refund_price&apos;][&apos;breach_price&apos;]/100.00 for item in _arg1]&quot;, [response])</span><br></pre></td></tr></table></figure>
 <h3 id="调试与打印日志"><a href="#调试与打印日志" class="headerlink" title="调试与打印日志"></a>调试与打印日志</h3><ul>
 <li>在嵌入python代码里使用print函数。相关内容会打印到TabPy服务端的日志里，如：</li>
 </ul>
@@ -467,19 +467,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">tableau</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">hive,tableau</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">tableau,python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
+                <a href="javascript:void(0)" class="js-tag color3">tableau</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -487,7 +479,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">tableau,python</a>
               </li>
              
               <li class="article-tag-list-item">
