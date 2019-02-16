@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018/1 | cleland的杂货铺</title>
+  <title>大数据实战项目-sparksql的使用与配置 | cleland的杂货铺</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="技术分享与生活随笔">
+  <meta name="description" content="spark sql与Hive集成(spark-shell)拷贝hive的配置文件hive-site.xml到spark的conf目录，并保证配置metastore. 1234&amp;lt;property&amp;gt;    &amp;lt;name&amp;gt;hive.metastore.urls&amp;lt;/name&amp;gt;    &amp;lt;value&amp;gt;thrift://header:9083&amp;lt;/value&amp;g">
 <meta name="keywords" content="python, 大数据, 数据分析, 爬虫, 程序猿">
-<meta property="og:type" content="website">
-<meta property="og:title" content="cleland的杂货铺">
-<meta property="og:url" content="http://yoursite.com/archives/2018/01/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大数据实战项目-sparksql的使用与配置">
+<meta property="og:url" content="http://yoursite.com/2018/08/01/大数据项目实战-sparksql的使用与配置/index.html">
 <meta property="og:site_name" content="cleland的杂货铺">
-<meta property="og:description" content="技术分享与生活随笔">
+<meta property="og:description" content="spark sql与Hive集成(spark-shell)拷贝hive的配置文件hive-site.xml到spark的conf目录，并保证配置metastore. 1234&amp;lt;property&amp;gt;    &amp;lt;name&amp;gt;hive.metastore.urls&amp;lt;/name&amp;gt;    &amp;lt;value&amp;gt;thrift://header:9083&amp;lt;/value&amp;g">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-08-01T00:40:25.643Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="cleland的杂货铺">
-<meta name="twitter:description" content="技术分享与生活随笔">
+<meta name="twitter:title" content="大数据实战项目-sparksql的使用与配置">
+<meta name="twitter:description" content="spark sql与Hive集成(spark-shell)拷贝hive的配置文件hive-site.xml到spark的conf目录，并保证配置metastore. 1234&amp;lt;property&amp;gt;    &amp;lt;name&amp;gt;hive.metastore.urls&amp;lt;/name&amp;gt;    &amp;lt;value&amp;gt;thrift://header:9083&amp;lt;/value&amp;g">
   
     <link rel="alternative" href="/atom.xml" title="cleland的杂货铺" type="application/atom+xml">
   
@@ -164,201 +165,147 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-大数据项目实战-sparksql的使用与配置" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      大数据实战项目-sparksql的使用与配置
+    </h1>
+  
+
+        
+        <a href="/2018/08/01/大数据项目实战-sparksql的使用与配置/" class="archive-article-date">
+  	<time datetime="2018-08-01T00:32:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-01</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="spark-sql与Hive集成-spark-shell"><a href="#spark-sql与Hive集成-spark-shell" class="headerlink" title="spark sql与Hive集成(spark-shell)"></a>spark sql与Hive集成(spark-shell)</h2><p>拷贝hive的配置文件hive-site.xml到spark的conf目录，并保证配置metastore.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;hive.metastore.urls&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;thrift://header:9083&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure>
+<p>拷贝hive的mysql jar包到spark的jar目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cp /opt/modules/hive-0.13.1-cdh5.3.0/lib/mysql-connector-java-5.1.7-bin.jar /opt/modules/spark-2.2.0-bin-hadoop2.5.0-spark/jars/</span><br></pre></td></tr></table></figure></p>
+<p>编辑spark-env.sh编辑环境变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HADOOP_CONF_DIR=/opt/modules/hadoop-2.5.0</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/22/网站资源/" class="archive-article-date">
-  	<time datetime="2018-01-22T15:30:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/22/网站资源/">网站资源</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">资源清单</a>
-        		</li>
-      		
-		</ul>
-	</div>
+      
 
-          
-
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/01/大数据项目实战-sparksql的使用与配置/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/20/Hexo-hexo进阶/" class="archive-article-date">
-  	<time datetime="2018-01-20T03:05:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-20</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2018/08/12/hadoop基础-hadoop编程环境搭建与开发/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          hadoop基础-hadoop编程环境搭建与开发
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/07/29/大数据项目实战-spark的安装与使用/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">大数据项目实战-spark的安装与使用</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/20/Hexo-hexo进阶/">Hexo|hexo进阶</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/18/使用Hexo搭建个人博客/" class="archive-article-date">
-  	<time datetime="2018-01-17T16:47:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/18/使用Hexo搭建个人博客/">使用Hexo快速搭建个人博客</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/18/Tableau基础-优化数据提取/" class="archive-article-date">
-  	<time datetime="2018-01-17T16:35:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/18/Tableau基础-优化数据提取/">Tableau | 优化数据提取</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">tableau</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/18/hello-world/" class="archive-article-date">
-  	<time datetime="2018-01-17T16:34:04.002Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/18/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -381,8 +328,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
