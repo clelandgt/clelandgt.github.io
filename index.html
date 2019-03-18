@@ -562,7 +562,7 @@ var _hmt = _hmt || [];
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> nohup hive --service hiveserver2 &gt;&gt; hiveserver2.log &amp;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> yum install cyrus-sasl-plain <span class="comment"># 安装这个，不然会报以下错误</span></span></span><br><span class="line">Could not start SASL: Error in sasl_client_start (-4) SASL(-4): no mechanism available: No worthy mechs found</span><br></pre></td></tr></table></figure>
 <h2 id="Hue与mysql集成"><a href="#Hue与mysql集成" class="headerlink" title="Hue与mysql集成"></a>Hue与mysql集成</h2><p>编辑desktop/conf/hue.ini文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[[[mysql]]]</span><br><span class="line">nice_name=&quot;My SQL DB&quot;</span><br><span class="line">name=metastore</span><br><span class="line">engine=mysql</span><br><span class="line">host=header</span><br><span class="line">port=3306</span><br><span class="line">user=admin</span><br><span class="line">password=admin</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[[[mysql]]]</span><br><span class="line">nice_name=&quot;My SQL DB&quot;</span><br><span class="line">name=hue</span><br><span class="line">engine=mysql</span><br><span class="line">host=header</span><br><span class="line">port=3306</span><br><span class="line">user=admin</span><br><span class="line">password=admin</span><br></pre></td></tr></table></figure>
 <h2 id="与hbase集成"><a href="#与hbase集成" class="headerlink" title="与hbase集成"></a>与hbase集成</h2><p>启动thrift服务： </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/hbase-daemon.sh start thrift</span><br></pre></td></tr></table></figure>
 <p>编辑desktop/conf/hue.ini文件</p>
@@ -657,6 +657,11 @@ var _hmt = _hmt || [];
 </ul>
 <p>创建业务表结构</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">CREATE EXTERNAL TABLE weblogs(</span><br><span class="line">	id STRING,</span><br><span class="line">	datetime STRING,</span><br><span class="line">	userid STRING,</span><br><span class="line">	searchname STRING,</span><br><span class="line">	retorder STRING,</span><br><span class="line">	cliorder STRING,</span><br><span class="line">	cliurl STRING</span><br><span class="line">)</span><br><span class="line">STORED BY &quot;org.apache.hadoop.hive.hbase.HBaseStorageHandler&quot;</span><br><span class="line">WITH SERDEPROPERTIES(&quot;hbase.columns.mapping&quot;=&quot;:key,info:datetime,info:userid,info:searchname,info:retorder,info:cliorder,info:cliurl&quot;)</span><br><span class="line">TBLPROPERTIES(&quot;hbase.table.name&quot;=&quot;weblogs&quot;);</span><br></pre></td></tr></table></figure>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><ol>
+<li>hive-env.sh配置HIVE_CONF_DIR不要配错版本了, 如在升级hive中配错了，修改了元数据库，名字还是没变。</li>
+<li>直接drop原来的数据库，再初始化数据库</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ schematool -dbType mysql -initSchema</span><br></pre></td></tr></table></figure>
 
       
 
@@ -1445,7 +1450,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color5">tableau,python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1453,7 +1458,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">tableau,python</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">

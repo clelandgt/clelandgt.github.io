@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="cleland的杂货铺">
 <meta property="og:description" content="基于Django实现 官方文档比较乱  下载Hue1234$ wget http://archive.cloudera.com/cdh5/cdh/5/hue-3.9.0-cdh5.5.0.tar.gz$ tar xvf hue-3.9.0-cdh5.5.0.tar.gz -C /opt/modules$ yum install ant asciidoc cyrus-sasl-devel cyru">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-17T16:16:46.957Z">
+<meta property="og:updated_time" content="2019-03-18T16:05:15.943Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="大数据项目实战-Hue安装与使用">
 <meta name="twitter:description" content="基于Django实现 官方文档比较乱  下载Hue1234$ wget http://archive.cloudera.com/cdh5/cdh/5/hue-3.9.0-cdh5.5.0.tar.gz$ tar xvf hue-3.9.0-cdh5.5.0.tar.gz -C /opt/modules$ yum install ant asciidoc cyrus-sasl-devel cyru">
@@ -210,7 +210,7 @@ var _hmt = _hmt || [];
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> nohup hive --service hiveserver2 &gt;&gt; hiveserver2.log &amp;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> yum install cyrus-sasl-plain <span class="comment"># 安装这个，不然会报以下错误</span></span></span><br><span class="line">Could not start SASL: Error in sasl_client_start (-4) SASL(-4): no mechanism available: No worthy mechs found</span><br></pre></td></tr></table></figure>
 <h2 id="Hue与mysql集成"><a href="#Hue与mysql集成" class="headerlink" title="Hue与mysql集成"></a>Hue与mysql集成</h2><p>编辑desktop/conf/hue.ini文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[[[mysql]]]</span><br><span class="line">nice_name=&quot;My SQL DB&quot;</span><br><span class="line">name=metastore</span><br><span class="line">engine=mysql</span><br><span class="line">host=header</span><br><span class="line">port=3306</span><br><span class="line">user=admin</span><br><span class="line">password=admin</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[[[mysql]]]</span><br><span class="line">nice_name=&quot;My SQL DB&quot;</span><br><span class="line">name=hue</span><br><span class="line">engine=mysql</span><br><span class="line">host=header</span><br><span class="line">port=3306</span><br><span class="line">user=admin</span><br><span class="line">password=admin</span><br></pre></td></tr></table></figure>
 <h2 id="与hbase集成"><a href="#与hbase集成" class="headerlink" title="与hbase集成"></a>与hbase集成</h2><p>启动thrift服务： </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/hbase-daemon.sh start thrift</span><br></pre></td></tr></table></figure>
 <p>编辑desktop/conf/hue.ini文件</p>
@@ -436,7 +436,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color5">tableau,python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -444,7 +444,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">tableau,python</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">

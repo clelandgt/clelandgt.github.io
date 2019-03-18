@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="cleland的杂货铺">
 <meta property="og:description" content="安装mysql1234$ sudo rpm -Uvh http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm$ sudo yum install mysql-server$ sudo service mysqld start  # 启动mysql$ mysqladmin -u root -h header  passwor">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-18T00:46:43.095Z">
+<meta property="og:updated_time" content="2019-03-18T16:02:17.953Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="大数据实战项目-Hive安装与使用">
 <meta name="twitter:description" content="安装mysql1234$ sudo rpm -Uvh http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm$ sudo yum install mysql-server$ sudo service mysqld start  # 启动mysql$ mysqladmin -u root -h header  passwor">
@@ -209,6 +209,11 @@ var _hmt = _hmt || [];
 </ul>
 <p>创建业务表结构</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">CREATE EXTERNAL TABLE weblogs(</span><br><span class="line">	id STRING,</span><br><span class="line">	datetime STRING,</span><br><span class="line">	userid STRING,</span><br><span class="line">	searchname STRING,</span><br><span class="line">	retorder STRING,</span><br><span class="line">	cliorder STRING,</span><br><span class="line">	cliurl STRING</span><br><span class="line">)</span><br><span class="line">STORED BY &quot;org.apache.hadoop.hive.hbase.HBaseStorageHandler&quot;</span><br><span class="line">WITH SERDEPROPERTIES(&quot;hbase.columns.mapping&quot;=&quot;:key,info:datetime,info:userid,info:searchname,info:retorder,info:cliorder,info:cliurl&quot;)</span><br><span class="line">TBLPROPERTIES(&quot;hbase.table.name&quot;=&quot;weblogs&quot;);</span><br></pre></td></tr></table></figure>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><ol>
+<li>hive-env.sh配置HIVE_CONF_DIR不要配错版本了, 如在升级hive中配错了，修改了元数据库，名字还是没变。</li>
+<li>直接drop原来的数据库，再初始化数据库</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ schematool -dbType mysql -initSchema</span><br></pre></td></tr></table></figure>
 
       
 
@@ -426,7 +431,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color5">tableau,python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -434,7 +439,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">tableau,python</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
