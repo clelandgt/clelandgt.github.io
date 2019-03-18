@@ -553,17 +553,24 @@ var _hmt = _hmt || [];
 <p>编辑header机器上的$HADOOP_CONF/core-site文件， 分发到worker-1和worker-2</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;hadoop.proxyuser.hue.hosts&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;*&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;hadoop.proxyuser.hue.groups&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;*&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure>
 <p>然后重启Hue,查看网页上是否可以查看hdfs</p>
+<p>$HADOOP_CONF/hdfs-site.xml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">  &lt;name&gt;dfs.webhdfs.enabled&lt;/name&gt;</span><br><span class="line">  &lt;value&gt;true&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure></p>
 <h2 id="Hue与Yarn集成"><a href="#Hue与Yarn集成" class="headerlink" title="Hue与Yarn集成"></a>Hue与Yarn集成</h2><p>编辑desktop/conf/hue.ini文件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[[yarn_clusters]]</span><br><span class="line">	[[default]]</span><br><span class="line">resourcemanager_host=header</span><br><span class="line">resourcemanager_port=8032</span><br><span class="line">submit_to=True</span><br><span class="line">resourcemanager_api_url=http://header:8088</span><br><span class="line">proxy_api_url=http://header:8088</span><br><span class="line">history_server_api_url=http://header:19888</span><br></pre></td></tr></table></figure>
 <h2 id="Hue与Hive集成"><a href="#Hue与Hive集成" class="headerlink" title="Hue与Hive集成"></a>Hue与Hive集成</h2><p>编辑desktop/conf/hue.ini文件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[beeswax]</span><br><span class="line">hive_server_host=header</span><br><span class="line">hive_server_port=10000</span><br><span class="line">hive_conf_dir=/opt/modules/hive-0.13.1-cdh5.3.0/conf</span><br></pre></td></tr></table></figure>
 <p>启动hiveserver2</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> nohup hive --service hiveserver2 &gt;&gt; hiveserver2.log &amp;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> yum install cyrus-sasl-plain <span class="comment"># 安装这个，不然会报以下错误</span></span></span><br><span class="line">Could not start SASL: Error in sasl_client_start (-4) SASL(-4): no mechanism available: No worthy mechs found</span><br></pre></td></tr></table></figure>
 <h2 id="Hue与mysql集成"><a href="#Hue与mysql集成" class="headerlink" title="Hue与mysql集成"></a>Hue与mysql集成</h2><p>编辑desktop/conf/hue.ini文件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[[[mysql]]]</span><br><span class="line">nice_name=&quot;My SQL DB&quot;</span><br><span class="line">name=metastore</span><br><span class="line">engine=mysql</span><br><span class="line">host=header</span><br><span class="line">port=3306</span><br><span class="line">user=admin</span><br><span class="line">password=admin</span><br></pre></td></tr></table></figure>
 <h2 id="与hbase集成"><a href="#与hbase集成" class="headerlink" title="与hbase集成"></a>与hbase集成</h2><p>启动thrift服务： </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/hbase-daemon.sh start thrift</span><br></pre></td></tr></table></figure>
 <p>编辑desktop/conf/hue.ini文件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hbase_clusters=(Cluster|header:9090)</span><br><span class="line">hbase_conf_dir=/opt/modules/hbase-0.98.6-hadoop2/conf</span><br></pre></td></tr></table></figure>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>当使用比较高的版本(4.0以上)，需要初始化数据库：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ build/env/bin/hue syncdb</span><br><span class="line">$ build/env/bin/hue migrate</span><br></pre></td></tr></table></figure>
+<p>编译报错, 需要按照以下库：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo yum install libffi-devel</span><br></pre></td></tr></table></figure>
 
       
 
@@ -646,7 +653,7 @@ var _hmt = _hmt || [];
 <li>hbase-hadoop2-compat-0.98.6-hadoop2.jar</li>
 <li>hbase-server-0.98.6-hadoop2.jar</li>
 <li>hbase-hadoop-compat-0.98.6-hadoop2.jar</li>
-<li>high-scale-lib-1.1.1.jar</li>
+<li>high-scale-lib-1.1.1.jar (高版本的hive2.3.4不需要改包)</li>
 </ul>
 <p>创建业务表结构</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">CREATE EXTERNAL TABLE weblogs(</span><br><span class="line">	id STRING,</span><br><span class="line">	datetime STRING,</span><br><span class="line">	userid STRING,</span><br><span class="line">	searchname STRING,</span><br><span class="line">	retorder STRING,</span><br><span class="line">	cliorder STRING,</span><br><span class="line">	cliurl STRING</span><br><span class="line">)</span><br><span class="line">STORED BY &quot;org.apache.hadoop.hive.hbase.HBaseStorageHandler&quot;</span><br><span class="line">WITH SERDEPROPERTIES(&quot;hbase.columns.mapping&quot;=&quot;:key,info:datetime,info:userid,info:searchname,info:retorder,info:cliorder,info:cliurl&quot;)</span><br><span class="line">TBLPROPERTIES(&quot;hbase.table.name&quot;=&quot;weblogs&quot;);</span><br></pre></td></tr></table></figure>
@@ -1430,11 +1437,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hive</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hive</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1443,10 +1454,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">tableau,python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
