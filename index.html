@@ -171,10 +171,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>数据科学第二周 | 基于Python实现数据的描述性统计</p>
-<p>配置环境</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip3 install matplotlib</span><br><span class="line">pip3 install pandas</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br></pre></td></tr></table></figure>
+        <h2 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ pip3 install jupyterlab  <span class="comment"># 安装jupyter</span></span><br><span class="line">$ jupyter notebook  <span class="comment"># 运行jupter</span></span><br><span class="line"></span><br><span class="line">$ pip3 install pandas  <span class="comment"># 安装pandas</span></span><br><span class="line">$ pip3 install matplotlib  <span class="comment"># 安装matplotlib</span></span><br></pre></td></tr></table></figure>
+<h2 id="加载数据"><a href="#加载数据" class="headerlink" title="加载数据"></a>加载数据</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">'salaries_10000.csv'</span>)</span><br><span class="line">df.head()</span><br></pre></td></tr></table></figure>
 <div><br><style scoped><br>    .dataframe tbody tr th:only-of-type {<br>        vertical-align: middle;<br>    }<br><br>    .dataframe tbody tr th {<br>        vertical-align: top;<br>    }<br><br>    .dataframe thead th {<br>        text-align: right;<br>    }<br></style><br><table border="1" class="dataframe"><br>  <thead><br>    <tr style="text-align: right;"><br>      <th></th><br>      <th>emp_no</th><br>      <th>salary</th><br>      <th>from_date</th><br>      <th>to_date</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <th>0</th><br>      <td>10001</td><br>      <td>60117</td><br>      <td>1986-06-26</td><br>      <td>1987-06-26</td><br>    </tr><br>    <tr><br>      <th>1</th><br>      <td>10001</td><br>      <td>62102</td><br>      <td>1987-06-26</td><br>      <td>1988-06-25</td><br>    </tr><br>    <tr><br>      <th>2</th><br>      <td>10001</td><br>      <td>66074</td><br>      <td>1988-06-25</td><br>      <td>1989-06-25</td><br>    </tr><br>    <tr><br>      <th>3</th><br>      <td>10001</td><br>      <td>66596</td><br>      <td>1989-06-25</td><br>      <td>1990-06-25</td><br>    </tr><br>    <tr><br>      <th>4</th><br>      <td>10001</td><br>      <td>66961</td><br>      <td>1990-06-25</td><br>      <td>1991-06-25</td><br>    </tr><br>  </tbody><br></table><br></div>
 
@@ -193,16 +191,13 @@ var _hmt = _hmt || [];
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 众数 </span></span><br><span class="line">df[<span class="string">'salary'</span>].mode()</span><br></pre></td></tr></table></figure>
 <pre><code>0    40000
 dtype: int64
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 最小值</span></span><br><span class="line">df[<span class="string">'salary'</span>].min()</span><br></pre></td></tr></table></figure>
-<pre><code>39265
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 最大值</span></span><br><span class="line">df[<span class="string">'salary'</span>].max()</span><br></pre></td></tr></table></figure>
-<pre><code>136004
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 第一分位数</span></span><br><span class="line">df[<span class="string">'salary'</span>].quantile(q=<span class="number">0.25</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>50853.75
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 第二分位</span></span><br><span class="line">df[<span class="string">'salary'</span>].quantile(q=<span class="number">0.50</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>61585.0
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 第三分位</span></span><br><span class="line">df[<span class="string">'salary'</span>].quantile(q=<span class="number">0.75</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>75238.0
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 最小值与最大值</span></span><br><span class="line">print(<span class="string">"最小值"</span>, df[<span class="string">'salary'</span>].min()) </span><br><span class="line">print(<span class="string">"最大值"</span>, df[<span class="string">'salary'</span>].max())</span><br></pre></td></tr></table></figure>
+<pre><code>最小值 39265
+最大值 136004
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 分位数</span></span><br><span class="line"><span class="keyword">print</span> (<span class="string">"第一分位数: "</span>, df[<span class="string">'salary'</span>].quantile(q=<span class="number">0.25</span>))</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"第二分位数: "</span>, df[<span class="string">'salary'</span>].quantile(q=<span class="number">0.50</span>))</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"第三分位数: "</span>, df[<span class="string">'salary'</span>].quantile(q=<span class="number">0.75</span>))</span><br></pre></td></tr></table></figure>
+<pre><code>第一分位数:  50853.75
+第二分位数:  61585.0
+第三分位数:  75238.0
 </code></pre><h2 id="数据的离中趋势"><a href="#数据的离中趋势" class="headerlink" title="数据的离中趋势"></a>数据的离中趋势</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方差</span></span><br><span class="line">df[<span class="string">'salary'</span>].var()</span><br></pre></td></tr></table></figure>
 <pre><code>286976127.73639596
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 标准差</span></span><br><span class="line">df[<span class="string">'salary'</span>].std()</span><br></pre></td></tr></table></figure>
@@ -211,8 +206,40 @@ dtype: int64
 <pre><code>24384.25
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 离散系数：标准差 / 均值</span></span><br><span class="line">df[<span class="string">'salary'</span>].std() / df[<span class="string">'salary'</span>].mean()</span><br></pre></td></tr></table></figure>
 <pre><code>0.2635089846017993
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.hist(df[<span class="string">'salary'</span>],<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>(array([390., 105., 150., 166., 231., 180., 177., 220., 231., 210., 222.,
+        223., 233., 228., 228., 247., 210., 245., 234., 206., 192., 227.,
+        235., 205., 216., 190., 193., 200., 189., 167., 171., 174., 163.,
+        165., 160., 143., 153., 119., 136., 119., 123., 139., 106., 118.,
+        106.,  89., 111.,  92.,  98.,  83.,  80.,  62.,  74.,  79.,  69.,
+         74.,  58.,  66.,  52.,  55.,  52.,  37.,  36.,  31.,  30.,  28.,
+         21.,  22.,  17.,  22.,   5.,  12.,  12.,  12.,   4.,   8.,   6.,
+          6.,   4.,   3.,   7.,   6.,   7.,   2.,   5.,   2.,   2.,   2.,
+          2.,   5.,   1.,   1.,   0.,   0.,   0.,   1.,   0.,   0.,   0.,
+          2.]),
+ array([ 39265.  ,  40232.39,  41199.78,  42167.17,  43134.56,  44101.95,
+         45069.34,  46036.73,  47004.12,  47971.51,  48938.9 ,  49906.29,
+         50873.68,  51841.07,  52808.46,  53775.85,  54743.24,  55710.63,
+         56678.02,  57645.41,  58612.8 ,  59580.19,  60547.58,  61514.97,
+         62482.36,  63449.75,  64417.14,  65384.53,  66351.92,  67319.31,
+         68286.7 ,  69254.09,  70221.48,  71188.87,  72156.26,  73123.65,
+         74091.04,  75058.43,  76025.82,  76993.21,  77960.6 ,  78927.99,
+         79895.38,  80862.77,  81830.16,  82797.55,  83764.94,  84732.33,
+         85699.72,  86667.11,  87634.5 ,  88601.89,  89569.28,  90536.67,
+         91504.06,  92471.45,  93438.84,  94406.23,  95373.62,  96341.01,
+         97308.4 ,  98275.79,  99243.18, 100210.57, 101177.96, 102145.35,
+        103112.74, 104080.13, 105047.52, 106014.91, 106982.3 , 107949.69,
+        108917.08, 109884.47, 110851.86, 111819.25, 112786.64, 113754.03,
+        114721.42, 115688.81, 116656.2 , 117623.59, 118590.98, 119558.37,
+        120525.76, 121493.15, 122460.54, 123427.93, 124395.32, 125362.71,
+        126330.1 , 127297.49, 128264.88, 129232.27, 130199.66, 131167.05,
+        132134.44, 133101.83, 134069.22, 135036.61, 136004.  ]),
+ &lt;a list of 100 Patch objects&gt;)
+</code></pre><p><img src="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E7%AC%AC2%E5%91%A8-%E5%9F%BA%E4%BA%8EPython%E5%AE%9E%E7%8E%B0%E6%95%B0%E6%8D%AE%E7%9A%84%E6%8F%8F%E8%BF%B0%E6%80%A7%E7%BB%9F%E8%AE%A1/1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">print</span> (<span class="string">"偏态系数: "</span>, df[<span class="string">'salary'</span>].skew())</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"峰态系数: "</span>, df[<span class="string">'salary'</span>].kurt())</span><br></pre></td></tr></table></figure>
+<pre><code>偏态系数:  0.6784771437175181
+峰态系数:  -0.03592105965629688
+</code></pre>
       
 
       
@@ -1462,11 +1489,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">hive,tableau</a>
+                <a href="javascript:void(0)" class="js-tag color3">tableau</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">tableau</a>
+                <a href="javascript:void(0)" class="js-tag color3">hive,tableau</a>
               </li>
              
               <li class="article-tag-list-item">
