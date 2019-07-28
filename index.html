@@ -166,6 +166,94 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-数据科学第二周 | 基于Python实现数据的描述性统计" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>数据科学第二周 | 基于Python实现数据的描述性统计</p>
+<p>配置环境</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip3 install matplotlib</span><br><span class="line">pip3 install pandas</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">'salaries_10000.csv'</span>)</span><br><span class="line">df.head()</span><br></pre></td></tr></table></figure>
+<div><br><style scoped><br>    .dataframe tbody tr th:only-of-type {<br>        vertical-align: middle;<br>    }<br><br>    .dataframe tbody tr th {<br>        vertical-align: top;<br>    }<br><br>    .dataframe thead th {<br>        text-align: right;<br>    }<br></style><br><table border="1" class="dataframe"><br>  <thead><br>    <tr style="text-align: right;"><br>      <th></th><br>      <th>emp_no</th><br>      <th>salary</th><br>      <th>from_date</th><br>      <th>to_date</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <th>0</th><br>      <td>10001</td><br>      <td>60117</td><br>      <td>1986-06-26</td><br>      <td>1987-06-26</td><br>    </tr><br>    <tr><br>      <th>1</th><br>      <td>10001</td><br>      <td>62102</td><br>      <td>1987-06-26</td><br>      <td>1988-06-25</td><br>    </tr><br>    <tr><br>      <th>2</th><br>      <td>10001</td><br>      <td>66074</td><br>      <td>1988-06-25</td><br>      <td>1989-06-25</td><br>    </tr><br>    <tr><br>      <th>3</th><br>      <td>10001</td><br>      <td>66596</td><br>      <td>1989-06-25</td><br>      <td>1990-06-25</td><br>    </tr><br>    <tr><br>      <th>4</th><br>      <td>10001</td><br>      <td>66961</td><br>      <td>1990-06-25</td><br>      <td>1991-06-25</td><br>    </tr><br>  </tbody><br></table><br></div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.describe()</span><br></pre></td></tr></table></figure>
+<div><br><style scoped><br>    .dataframe tbody tr th:only-of-type {<br>        vertical-align: middle;<br>    }<br><br>    .dataframe tbody tr th {<br>        vertical-align: top;<br>    }<br><br>    .dataframe thead th {<br>        text-align: right;<br>    }<br></style><br><table border="1" class="dataframe"><br>  <thead><br>    <tr style="text-align: right;"><br>      <th></th><br>      <th>emp_no</th><br>      <th>salary</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <th>count</th><br>      <td>10000.000000</td><br>      <td>10000.000000</td><br>    </tr><br>    <tr><br>      <th>mean</th><br>      <td>10526.233800</td><br>      <td>64287.636300</td><br>    </tr><br>    <tr><br>      <th>std</th><br>      <td>304.535669</td><br>      <td>16940.369764</td><br>    </tr><br>    <tr><br>      <th>min</th><br>      <td>10001.000000</td><br>      <td>39265.000000</td><br>    </tr><br>    <tr><br>      <th>25%</th><br>      <td>10262.750000</td><br>      <td>50853.750000</td><br>    </tr><br>    <tr><br>      <th>50%</th><br>      <td>10526.000000</td><br>      <td>61585.000000</td><br>    </tr><br>    <tr><br>      <th>75%</th><br>      <td>10791.000000</td><br>      <td>75238.000000</td><br>    </tr><br>    <tr><br>      <th>max</th><br>      <td>11053.000000</td><br>      <td>136004.000000</td><br>    </tr><br>  </tbody><br></table><br></div>
+
+
+
+<h2 id="数据的集中趋势"><a href="#数据的集中趋势" class="headerlink" title="数据的集中趋势"></a>数据的集中趋势</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 算术平均数</span></span><br><span class="line">df[<span class="string">'salary'</span>].mean()</span><br></pre></td></tr></table></figure>
+<pre><code>64287.6363
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 中位数</span></span><br><span class="line">df[<span class="string">'salary'</span>].median()</span><br></pre></td></tr></table></figure>
+<pre><code>61585.0
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 众数 </span></span><br><span class="line">df[<span class="string">'salary'</span>].mode()</span><br></pre></td></tr></table></figure>
+<pre><code>0    40000
+dtype: int64
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 最小值</span></span><br><span class="line">df[<span class="string">'salary'</span>].min()</span><br></pre></td></tr></table></figure>
+<pre><code>39265
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 最大值</span></span><br><span class="line">df[<span class="string">'salary'</span>].max()</span><br></pre></td></tr></table></figure>
+<pre><code>136004
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 第一分位数</span></span><br><span class="line">df[<span class="string">'salary'</span>].quantile(q=<span class="number">0.25</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>50853.75
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 第二分位</span></span><br><span class="line">df[<span class="string">'salary'</span>].quantile(q=<span class="number">0.50</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>61585.0
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 第三分位</span></span><br><span class="line">df[<span class="string">'salary'</span>].quantile(q=<span class="number">0.75</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>75238.0
+</code></pre><h2 id="数据的离中趋势"><a href="#数据的离中趋势" class="headerlink" title="数据的离中趋势"></a>数据的离中趋势</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方差</span></span><br><span class="line">df[<span class="string">'salary'</span>].var()</span><br></pre></td></tr></table></figure>
+<pre><code>286976127.73639596
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 标准差</span></span><br><span class="line">df[<span class="string">'salary'</span>].std()</span><br></pre></td></tr></table></figure>
+<pre><code>16940.36976386277
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 四分位差</span></span><br><span class="line">df[<span class="string">'salary'</span>].quantile(q=<span class="number">0.75</span>)-df[<span class="string">'salary'</span>].quantile(q=<span class="number">0.25</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>24384.25
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 离散系数：标准差 / 均值</span></span><br><span class="line">df[<span class="string">'salary'</span>].std() / df[<span class="string">'salary'</span>].mean()</span><br></pre></td></tr></table></figure>
+<pre><code>0.2635089846017993
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/28/数据科学第二周 | 基于Python实现数据的描述性统计/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hive基础操作-创建udf" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1269,82 +1357,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-hadoop高级-hadoop队列管理与资源隔离" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/17/hadoop高级-hadoop队列管理与资源隔离/">hadoop高级-hadoop队列管理与资源隔离</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/17/hadoop高级-hadoop队列管理与资源隔离/" class="archive-article-date">
-  	<time datetime="2018-05-17T12:13:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="http://cleland.oss-cn-beijing.aliyuncs.com/blog/img/Hive-hive使用压缩/hive-hive使用压缩1.jpg" alt=""></p>
-        
-          <a class="article-more-a" href="/2018/05/17/hadoop高级-hadoop队列管理与资源隔离/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hadoop</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/17/hadoop高级-hadoop队列管理与资源隔离/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1442,15 +1454,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hive</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">tableau</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1458,11 +1466,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color3">tableau</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">tableau,python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
